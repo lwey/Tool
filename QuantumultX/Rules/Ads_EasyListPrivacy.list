@@ -1,7 +1,7 @@
 ## [Adblock Plus 1.1]
-## ! Version: 202311151519
+## ! Version: 202311161535
 ## ! Title: EasyPrivacy
-## ! Last modified: 15 Nov 2023 15:19 UTC
+## ! Last modified: 16 Nov 2023 15:35 UTC
 ## ! Expires: 4 days (update frequency)
 ## ! *** easylist:template_header.txt ***
 ## ! 
@@ -50,6 +50,7 @@ HOST-SUFFIX,anonstat.pw,reject,DIRECT
 HOST-SUFFIX,apeagle.io,reject,DIRECT
 HOST-SUFFIX,apenterprise.io,reject,DIRECT
 HOST-SUFFIX,apxl.io,reject,DIRECT
+HOST-SUFFIX,arttrk.com,reject,DIRECT
 HOST-SUFFIX,as3.io,reject,DIRECT
 HOST-SUFFIX,awmonitor.com,reject,DIRECT
 HOST-SUFFIX,ayc0zsm69431gfebd.info,reject,DIRECT
@@ -300,6 +301,7 @@ HOST-SUFFIX,rkdms.com,reject,DIRECT
 HOST-SUFFIX,rlcdn.com,reject,DIRECT
 HOST-SUFFIX,robotflowermobile.com,reject,DIRECT
 HOST-SUFFIX,rtactivate.com,reject,DIRECT
+HOST-SUFFIX,rumt-sg.com,reject,DIRECT
 HOST-SUFFIX,s-onetag.com,reject,DIRECT
 HOST-SUFFIX,salsify-ecdn.com,reject,DIRECT
 HOST-SUFFIX,sbgsodufuosmmvsdf.info,reject,DIRECT
@@ -1436,6 +1438,7 @@ HOST-SUFFIX,pricklydebt.com,reject,DIRECT
 HOST-SUFFIX,pricklyjourney.com,reject,DIRECT
 HOST-SUFFIX,pricklypies.com,reject,DIRECT
 HOST-SUFFIX,pricklyplastic.com,reject,DIRECT
+HOST-SUFFIX,pricklypollution.com,reject,DIRECT
 HOST-SUFFIX,printerplasma.com,reject,DIRECT
 HOST-SUFFIX,producecopy.com,reject,DIRECT
 HOST-SUFFIX,producepickle.com,reject,DIRECT
@@ -3982,6 +3985,7 @@ HOST-SUFFIX,health-metrics-api.setapp.com,reject,DIRECT
 HOST-SUFFIX,heap.drop.com,reject,DIRECT
 HOST-SUFFIX,hits.cyberdrop.me,reject,DIRECT
 HOST-SUFFIX,hlogger.heraldcorp.com,reject,DIRECT
+HOST-SUFFIX,htrace.wetvinfo.com,reject,DIRECT
 HOST-SUFFIX,i.pokernews.com,reject,DIRECT
 HOST-SUFFIX,iam-rum-intake.datadoghq.com,reject,DIRECT
 HOST-SUFFIX,iedc.fitbit.com,reject,DIRECT
@@ -4212,6 +4216,7 @@ HOST-SUFFIX,ted.dailymail.co.uk,reject,DIRECT
 HOST-SUFFIX,telegraph.prd.api.max.com,reject,DIRECT
 HOST-SUFFIX,telem.sre.gopuff.com,reject,DIRECT
 HOST-SUFFIX,telemetry.adobe.io,reject,DIRECT
+HOST-SUFFIX,telemetry.algolia.com,reject,DIRECT
 HOST-SUFFIX,telemetry.api.playstation.com,reject,DIRECT
 HOST-SUFFIX,telemetry.firez.one,reject,DIRECT
 HOST-SUFFIX,telemetry.tradingview.com,reject,DIRECT

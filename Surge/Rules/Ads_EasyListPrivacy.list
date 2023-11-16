@@ -1,7 +1,7 @@
 ## [Adblock Plus 1.1]
-## ! Version: 202311151519
+## ! Version: 202311161535
 ## ! Title: EasyPrivacy
-## ! Last modified: 15 Nov 2023 15:19 UTC
+## ! Last modified: 16 Nov 2023 15:35 UTC
 ## ! Expires: 4 days (update frequency)
 ## ! *** easylist:template_header.txt ***
 ## ! 
@@ -50,6 +50,7 @@ DOMAIN-SUFFIX,anonstat.pw,extended-matching
 DOMAIN-SUFFIX,apeagle.io,extended-matching
 DOMAIN-SUFFIX,apenterprise.io,extended-matching
 DOMAIN-SUFFIX,apxl.io,extended-matching
+DOMAIN-SUFFIX,arttrk.com,extended-matching
 DOMAIN-SUFFIX,as3.io,extended-matching
 DOMAIN-SUFFIX,awmonitor.com,extended-matching
 DOMAIN-SUFFIX,ayc0zsm69431gfebd.info,extended-matching
@@ -300,6 +301,7 @@ DOMAIN-SUFFIX,rkdms.com,extended-matching
 DOMAIN-SUFFIX,rlcdn.com,extended-matching
 DOMAIN-SUFFIX,robotflowermobile.com,extended-matching
 DOMAIN-SUFFIX,rtactivate.com,extended-matching
+DOMAIN-SUFFIX,rumt-sg.com,extended-matching
 DOMAIN-SUFFIX,s-onetag.com,extended-matching
 DOMAIN-SUFFIX,salsify-ecdn.com,extended-matching
 DOMAIN-SUFFIX,sbgsodufuosmmvsdf.info,extended-matching
@@ -1436,6 +1438,7 @@ DOMAIN-SUFFIX,pricklydebt.com,extended-matching
 DOMAIN-SUFFIX,pricklyjourney.com,extended-matching
 DOMAIN-SUFFIX,pricklypies.com,extended-matching
 DOMAIN-SUFFIX,pricklyplastic.com,extended-matching
+DOMAIN-SUFFIX,pricklypollution.com,extended-matching
 DOMAIN-SUFFIX,printerplasma.com,extended-matching
 DOMAIN-SUFFIX,producecopy.com,extended-matching
 DOMAIN-SUFFIX,producepickle.com,extended-matching
@@ -3982,6 +3985,7 @@ DOMAIN-SUFFIX,health-metrics-api.setapp.com,extended-matching
 DOMAIN-SUFFIX,heap.drop.com,extended-matching
 DOMAIN-SUFFIX,hits.cyberdrop.me,extended-matching
 DOMAIN-SUFFIX,hlogger.heraldcorp.com,extended-matching
+DOMAIN-SUFFIX,htrace.wetvinfo.com,extended-matching
 DOMAIN-SUFFIX,i.pokernews.com,extended-matching
 DOMAIN-SUFFIX,iam-rum-intake.datadoghq.com,extended-matching
 DOMAIN-SUFFIX,iedc.fitbit.com,extended-matching
@@ -4212,6 +4216,7 @@ DOMAIN-SUFFIX,ted.dailymail.co.uk,extended-matching
 DOMAIN-SUFFIX,telegraph.prd.api.max.com,extended-matching
 DOMAIN-SUFFIX,telem.sre.gopuff.com,extended-matching
 DOMAIN-SUFFIX,telemetry.adobe.io,extended-matching
+DOMAIN-SUFFIX,telemetry.algolia.com,extended-matching
 DOMAIN-SUFFIX,telemetry.api.playstation.com,extended-matching
 DOMAIN-SUFFIX,telemetry.firez.one,extended-matching
 DOMAIN-SUFFIX,telemetry.tradingview.com,extended-matching
