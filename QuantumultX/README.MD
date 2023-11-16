@@ -25,7 +25,6 @@ https://raw.githubusercontent.com/Repcz/Open-Proflies/main/QuantumultX/Quantumul
 * 弹出的 **设置** 菜单中，在最上方 **节点** 区域，点击 **节点资源**
 * 点击右上角 **🔗** 按钮
 * 添加机场订阅并保存
-
 ![Image text](https://github.com/Repcz/Tool/blob/X/QuantumultX/Photo/%E8%AE%A2%E9%98%85.jpg) 
 
 ### 3.为配置文件生成证书
