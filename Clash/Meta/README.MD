@@ -45,7 +45,6 @@ proxy-providers:
 * 类型选择**Local**，点击下方 **选择文件**，选择修改好的文件
 * 点击 **代理** ，设置分流
 
-![3](https://github.com/Repcz/Tool/blob/X/Clash/Meta/Photo/3.png)
 
 #### 4. 启用配置
 * 选择导入的配置，右键-启用
@@ -96,5 +95,5 @@ https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_Auto.ini
 
 
 ### 导入Clash Verge
-* 打开Clash Verge，点击 **配置**，导入**[订阅转换]**后的链接
+* 打开Clash Verge，点击 **配置**，导入**订阅转换**后的链接
 * 点击 **代理** ，设置分流
