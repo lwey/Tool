@@ -8,6 +8,8 @@ HOST-SUFFIX,dl.carryz.net,DIRECT
 HOST-SUFFIX,play.charontv.com,DIRECT
 HOST-SUFFIX,public.emby.ws,DIRECT
 IP-CIDR,212.107.29.221/32,DIRECT
+HOST,porn.aca.best,DIRECT
+HOST,emby.aca.best,DIRECT
 
 # REPO: https:
 HOST,emby.enjoyit.eu.org,DIRECT

@@ -8,6 +8,8 @@ DOMAIN-SUFFIX,dl.carryz.net
 DOMAIN-SUFFIX,play.charontv.com
 DOMAIN-SUFFIX,public.emby.ws
 IP-CIDR,212.107.29.221/32,no-resolve
+DOMAIN,porn.aca.best
+DOMAIN,emby.aca.best
 
 # REPO: https://github.com/justdoiting/emby-rules
 DOMAIN,emby.enjoyit.eu.org
