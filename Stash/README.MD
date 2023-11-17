@@ -7,10 +7,12 @@
 > **_Stash_** 自带 **Sub-Store**，机场订阅本地转换可参考[Sub-Store 教程](https://www.notion.so/Sub-Store-6259586994d34c11a4ced5c406264b46)
 
 ### 1. 导入并修改配置
-* **设置** - **配置文件** - **从URL下载**
 
+
+* **设置** - **配置文件** - **从URL下载**
+* 点击下方配置名称可直接导入
 <details>
-  <summary>Stash.yaml</summary>
+  <summary>[Stash.yaml](https://link.stash.ws/install-config/raw.githubusercontent.com/Repcz/Tool/X/Stash/Stash.yaml)</summary>
 
 - [ ] 使用GeoSITE&GeoIP
 - [x] 地区分流（香港、美国、日本、台湾、新加坡、澳大利亚、英国、印度）
@@ -29,7 +31,7 @@ https://github.com/Repcz/Tool/raw/X/Stash/Stash.yaml
 
 
 <details>
-  <summary>Stash_lite.yaml</summary>
+  <summary>[Stash_lite.yaml](https://link.stash.ws/install-config/raw.githubusercontent.com/Repcz/Tool/X/Stash/Stash_lite.yaml)</summary>
 
 - [x] 使用GeoSITE&GeoIP
 - [x] 地区分流（香港、美国、日本、台湾、新加坡、澳大利亚、英国、印度）
