@@ -86,12 +86,12 @@ eg:
 https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_Auto.ini
 ```
 #### 3. 选择后端地址并生成订阅
-* 强烈建议使用自建后端，自建后端订阅转换可以有效防止订阅泄露以及规则下载不全等问题，具体方法见[自建subconverter订阅转换](https://github.com/Repcz/Open-Proflies/wiki/%E8%87%AA%E5%BB%BAsubconverter%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2)
+* 强烈建议使用自建后端，自建后端订阅转换可以有效防止订阅泄露以及规则下载不全等问题，具体方法见[自建subconverter订阅转换](https://github.com/Repcz/Tool/X/subconverter)
 
 ![4](https://github.com/Repcz/Tool/blob/X/Clash/Meta/Photo/4.PNG)
 
 ### 本地后端订阅转换（推荐）
-详细使用方法见[自建subconverter订阅转换](https://github.com/Repcz/Open-Proflies/wiki/%E8%87%AA%E5%BB%BAsubconverter%E8%AE%A2%E9%98%85%E8%BD%AC%E6%8D%A2)
+详细使用方法见[自建subconverter订阅转换](https://github.com/Repcz/Tool/X/subconverter)
 
 
 ### 导入Clash Verge
