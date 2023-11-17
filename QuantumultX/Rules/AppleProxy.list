@@ -7,19 +7,19 @@
 # 
 # USER-AGENT: 1
 # TOTAL: 16
-HOST,api-glb-sea.smoot.apple.com,DIRECT
-HOST,books.itunes.apple.com,DIRECT
-HOST,cvws.icloud-content.com,DIRECT
-HOST,developer.apple.com,DIRECT
-HOST,hls.itunes.apple.com,DIRECT
-HOST,itunes.apple.com,DIRECT
-HOST,lookup-api.apple.com,DIRECT
-HOST,sandbox.itunes.apple.com,DIRECT
-HOST,testflight.apple.com,DIRECT
-HOST-SUFFIX,apple-dns.net,DIRECT
-HOST-SUFFIX,apps.apple.com,DIRECT
-HOST-SUFFIX,appsto.re,DIRECT
-HOST-SUFFIX,blobstore.apple.com,DIRECT
-HOST-SUFFIX,digicert.com,DIRECT
-USER-AGENT,com.apple.trustd*,DIRECT
+HOST,api-glb-sea.smoot.apple.com,PROXY
+HOST,books.itunes.apple.com,PROXY
+HOST,cvws.icloud-content.com,PROXY
+HOST,developer.apple.com,PROXY
+HOST,hls.itunes.apple.com,PROXY
+HOST,itunes.apple.com,PROXY
+HOST,lookup-api.apple.com,PROXY
+HOST,sandbox.itunes.apple.com,PROXY
+HOST,testflight.apple.com,PROXY
+HOST-SUFFIX,apple-dns.net,PROXY
+HOST-SUFFIX,apps.apple.com,PROXY
+HOST-SUFFIX,appsto.re,PROXY
+HOST-SUFFIX,blobstore.apple.com,PROXY
+HOST-SUFFIX,digicert.com,PROXY
+USER-AGENT,com.apple.trustd*,PROXY
 

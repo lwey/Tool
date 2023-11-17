@@ -5,6 +5,6 @@
 # DOMAIN: 2
 # HOST-KEYWORD: 1
 # TOTAL: 3
-HOST,beta.apple.com,DIRECT
-HOST,testflight.apple.com,DIRECT
-HOST-KEYWORD,testflight,DIRECT
+HOST,beta.apple.com,PROXY
+HOST,testflight.apple.com,PROXY
+HOST-KEYWORD,testflight,PROXY

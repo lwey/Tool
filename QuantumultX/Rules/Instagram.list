@@ -1,6 +1,6 @@
 # 内容：Instagram
 # 数量：4条
-HOST-KEYWORD,instagram,DIRECT
-HOST-SUFFIX,cdninstagram.com,DIRECT
-HOST-SUFFIX,instagr.am,DIRECT
-HOST-SUFFIX,instagram.com,DIRECT
+HOST-KEYWORD,instagram,PROXY
+HOST-SUFFIX,cdninstagram.com,PROXY
+HOST-SUFFIX,instagr.am,PROXY
+HOST-SUFFIX,instagram.com,PROXY
