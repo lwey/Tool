@@ -12,7 +12,7 @@
 * **设置** - **配置文件** - **从URL下载**
 * 点击下方配置名称可直接导入
 <details>
-  <summary>[Stash.yaml](https://link.stash.ws/install-config/raw.githubusercontent.com/Repcz/Tool/X/Stash/Stash.yaml)</summary>
+  <summary> [Stash.yaml](https://link.stash.ws/install-config/raw.githubusercontent.com/Repcz/Tool/X/Stash/Stash.yaml) </summary>
 
 - [ ] 使用GeoSITE&GeoIP
 - [x] 地区分流（香港、美国、日本、台湾、新加坡、澳大利亚、英国、印度）
@@ -31,7 +31,7 @@ https://github.com/Repcz/Tool/raw/X/Stash/Stash.yaml
 
 
 <details>
-  <summary>[Stash_lite.yaml](https://link.stash.ws/install-config/raw.githubusercontent.com/Repcz/Tool/X/Stash/Stash_lite.yaml)</summary>
+  <summary> [Stash_lite.yaml](https://link.stash.ws/install-config/raw.githubusercontent.com/Repcz/Tool/X/Stash/Stash_lite.yaml) </summary>
 
 - [x] 使用GeoSITE&GeoIP
 - [x] 地区分流（香港、美国、日本、台湾、新加坡、澳大利亚、英国、印度）
