@@ -29,7 +29,7 @@ jobs:
         curl -L -o Tool-repo/Surge/Rules/TestFlight.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/TestFlight/TestFlight.list"
         curl -L -o Tool-repo/Surge/Rules/AppleProxy.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/AppleProxy/AppleProxy.list"
         # 代理规则
-        # curl -L -o Tool-repo/Surge/Rules/OpenAI.list "https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Rule/OpenAI.list"
+        curl -L -o Tool-repo/Surge/Rules/OpenAI.list "https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Rule/OpenAI.list"
         curl -L -o Tool-repo/Surge/Rules/Twitter.list "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Twitter.list"
         curl -L -o Tool-repo/Surge/Rules/Instagram.list "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Instagram.list"
         curl -L -o Tool-repo/Surge/Rules/Facebook.list "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Facebook.list"
@@ -295,8 +295,32 @@ jobs:
             awk '{sub("PROCESS-NAME.*$", ""); print}' "$file" > tmpfile
             mv tmpfile "$file"
             # 在非空行和注释后添加DIRECT
-            awk '!/^[[:space:]]*(#|$)/ && !/,DIRECT$/ {print $0",DIRECT"}; /^[[:space:]]*(#|$)|,DIRECT$/ {print $0}' "$file" > tmpfile
+            awk '!/^[[:space:]]*(#|$)/ && !/,PROXY$/ {print $0",PROXY"}; /^[[:space:]]*(#|$)|,PROXY$/ {print $0}' "$file" > tmpfile
             mv tmpfile "$file"            
+          else
+            echo "$file not found."
+          fi
+        done
+
+    - name: Edit QuantumultX/Rules/Ads
+      run: |
+        cd Tool-repo/QuantumultX/Rules
+        for file in Ad*.list; do
+          if [ -f "$file" ]; then
+            # 修改, 为,
+            sed -i 's/,PROXY/,REJECT/g' "$file"
+          else
+            echo "$file not found."
+          fi
+        done
+
+    - name: Edit QuantumultX/Rules/CN
+      run: |
+        cd Tool-repo/QuantumultX/Rules
+        for file in Bilibili.list WeChat.list ChinaDomain.list ChinaIP.list ChinaASN.list; do
+          if [ -f "$file" ]; then
+            # 修改, 为,
+            sed -i 's/,PROXY/,DIRECT/g' "$file"
           else
             echo "$file not found."
           fi
