@@ -6,13 +6,13 @@
 ## ! *** easylist:template_header.txt ***
 ## ! 
 ## ! Please report any unblocked adverts or problems
-## ! in the forums (https:
+## ! in the forums (https://forums.lanik.us/)
 ## ! or via e-mail (easylist@protonmail.com).
 ## ! 
-## ! Homepage: https:
-## ! Licence: https:
-## ! GitHub issues: https:
-## ! GitHub pull requests: https:
+## ! Homepage: https://easylist.to/
+## ! Licence: https://easylist.to/pages/licence.html
+## ! GitHub issues: https://github.com/easylist/easylist/issues
+## ! GitHub pull requests: https://github.com/easylist/easylist/pulls
 
 
 HOST-SUFFIX,00px.net,reject,REJECT
