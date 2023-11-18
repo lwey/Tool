@@ -1,6 +1,4 @@
-# 2023-11-18 09:11:47
 HOST,o33249.ingest.sentry.io,PROXY
-HOST-SUFFIX,ai.com,PROXY
 HOST-SUFFIX,auth0.com,PROXY
 HOST-SUFFIX,challenges.cloudflare.com,PROXY
 HOST-SUFFIX,chat.openai.com.cdn.cloudflare.net,PROXY
