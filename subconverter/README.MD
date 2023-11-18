@@ -1,5 +1,3 @@
-# 自建subconverter订阅转换
-
 _自建订阅转换可以有效防止订阅泄露以及规则下载不全等问题_
 
 > 订阅转换后端项目地址：[subconverter](https://github.com/tindy2013/subconverter)
@@ -95,7 +93,7 @@ http://服务器地址:25500/sub?target=clash&insert=true&new_name=true&scv=true
 http://服务器地址:25500/sub?target=clash&insert=true&new_name=true&scv=true&url=机场订阅地址&list=true
 ```
 
-**_自用ini配置文件_(适用于ClashMeta内核)**
+**_自用ini配置文件_**
 
 <details>
   <summary>多国家 流媒体 自动最低延迟</summary>
@@ -111,7 +109,8 @@ http://服务器地址:25500/sub?target=clash&insert=true&new_name=true&scv=true
 </details>
 
 ```
-https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_Auto.ini```
+https://ghproxy.com/https://raw.githubusercontent.com/Repcz/Open-Proflies/main/Clash/Online_Full_Auto.ini
+```
 
 <details>
   <summary>多国家 流媒体 手动选择</summary>
@@ -127,9 +126,8 @@ https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_Auto.ini``
 </details>
 
 ```
-https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_NoAuto.ini
+https://ghproxy.com/https://raw.githubusercontent.com/Repcz/Open-Proflies/main/Clash/Online_Full_NoAuto.ini
 ```
-
 
 
 参数说明
@@ -152,6 +150,3 @@ https://raw.githubusercontent.com/Repcz/Tool/X/Clash/Meta/Online_Full_NoAuto.ini
 * [subconverter/README-cn.md](https://github.com/tindy2013/subconverter/blob/master/README-cn.md#subconverter)
 * [自建clash订阅转换subconverter后端并配置规则](https://s1oz.github.io/post/zi-jian-clash-ding-yue-zhuan-huan-hou-duan-bing-pei-zhi-gui-ze/) 
 * [解决订阅转换节点被盗用和无法转换大量节点，本地订阅转换教程](https://www.youtube.com/watch?v=UxvjT_nHLo4)
-
-
-***
