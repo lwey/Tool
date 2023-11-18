@@ -289,8 +289,6 @@ jobs:
             # 删除"//" 以及后面的所有字符
             awk '{sub(" \\/\\/.*$", ""); print}' "$file" > tmpfile
             mv tmpfile "$file"
-            awk '{sub("\\/\\/.*$", ""); print}' "$file" > tmpfile
-            mv tmpfile "$file"
             # 删除“PROCESS-NAME”规则
             awk '{sub("PROCESS-NAME.*$", ""); print}' "$file" > tmpfile
             mv tmpfile "$file"
