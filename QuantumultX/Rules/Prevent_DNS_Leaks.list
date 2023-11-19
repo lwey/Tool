@@ -1,5 +1,4 @@
 # From Shadowrocket Default Profile
-
 HOST-SUFFIX,dnsleaktest.com,PROXY
 HOST-SUFFIX,dnsleak.com,PROXY
 HOST-SUFFIX,expressvpn.com,PROXY
@@ -13,5 +12,3 @@ HOST-SUFFIX,vpnunlimited.com,PROXY
 HOST-SUFFIX,whoer.net,PROXY
 HOST-SUFFIX,whrq.net,PROXY
 HOST-KEYWORD,leak,PROXY
-
-

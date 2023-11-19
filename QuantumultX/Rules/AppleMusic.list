@@ -17,4 +17,3 @@ HOST-SUFFIX,applemusic.com,PROXY
 HOST-SUFFIX,blobstore.apple.com,PROXY
 HOST-SUFFIX,music.apple.com,PROXY
 USER-AGENT,Music*,PROXY
-

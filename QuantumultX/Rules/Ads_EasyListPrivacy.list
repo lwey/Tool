@@ -13,8 +13,6 @@
 ## ! Licence: https://easylist.to/pages/licence.html
 ## ! GitHub issues: https://github.com/easylist/easylist/issues
 ## ! GitHub pull requests: https://github.com/easylist/easylist/pulls
-
-
 HOST-SUFFIX,00px.net,reject,REJECT
 HOST-SUFFIX,1cros.net,reject,REJECT
 HOST-SUFFIX,2022welcome.com,reject,REJECT

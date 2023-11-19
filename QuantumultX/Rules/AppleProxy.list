@@ -22,4 +22,3 @@ HOST-SUFFIX,appsto.re,PROXY
 HOST-SUFFIX,blobstore.apple.com,PROXY
 HOST-SUFFIX,digicert.com,PROXY
 USER-AGENT,com.apple.trustd*,PROXY
-

@@ -9,8 +9,6 @@
 ## ! Please report any unblocked adverts or problems
 ## ! on GitHub (https://github.com/easylist/easylistchina/issues)
 ## ! or via e-mail (easylist.china@gmail.com).
-
-
 HOST-SUFFIX,asd8900.oss-*.aliyuncs.com,REJECT
 HOST-SUFFIX,ky891.oss-*.aliyuncs.com,REJECT
 HOST-SUFFIX,tupian888.*.bcebos.com,REJECT
