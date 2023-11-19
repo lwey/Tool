@@ -1,7 +1,7 @@
 ## [Adblock Plus 1.1]
-## ! Version: 202311181350
+## ! Version: 202311190232
 ## ! Title: EasyPrivacy
-## ! Last modified: 18 Nov 2023 13:50 UTC
+## ! Last modified: 19 Nov 2023 02:32 UTC
 ## ! Expires: 4 days (update frequency)
 ## ! *** easylist:template_header.txt ***
 ## ! 
@@ -442,9 +442,6 @@ HOST-SUFFIX,cloud-miner.eu,reject,REJECT
 HOST-SUFFIX,de-mi-nis-ner.info,reject,REJECT
 HOST-SUFFIX,de-ner-mi-nis4.info,reject,REJECT
 HOST-SUFFIX,de-nis-ner-mi-5.info,reject,REJECT
-HOST-SUFFIX,dnsseed.bitcoin.dashjr.org,reject,REJECT
-HOST-SUFFIX,dnsseed.bluematt.me,reject,REJECT
-HOST-SUFFIX,dnsseed.emzy.de,reject,REJECT
 HOST-SUFFIX,f1tbit.com,reject,REJECT
 HOST-SUFFIX,filmoljupci.com,reject,REJECT
 HOST-SUFFIX,g1thub.com,reject,REJECT
@@ -458,11 +455,6 @@ HOST-SUFFIX,minerad.com,reject,REJECT
 HOST-SUFFIX,pampopholf.com,reject,REJECT
 HOST-SUFFIX,rand.com.ru,reject,REJECT
 HOST-SUFFIX,reauthenticator.com,reject,REJECT
-HOST-SUFFIX,seed.bitcoin.sipa.be,reject,REJECT
-HOST-SUFFIX,seed.bitcoin.sprovoost.nl,reject,REJECT
-HOST-SUFFIX,seed.bitcoin.wiz.biz,reject,REJECT
-HOST-SUFFIX,seed.bitcoinstats.com,reject,REJECT
-HOST-SUFFIX,seed.btc.petertodd.org,reject,REJECT
 HOST-SUFFIX,serv1swork.com,reject,REJECT
 HOST-SUFFIX,statdynamic.com,reject,REJECT
 HOST-SUFFIX,str1kee.com,reject,REJECT
@@ -2907,6 +2899,7 @@ HOST-SUFFIX,tagtracking.vibescm.com,reject,REJECT
 HOST-SUFFIX,target.mixi.media,reject,REJECT
 HOST-SUFFIX,te.supportfreecontent.com,reject,REJECT
 HOST-SUFFIX,telemetrics.klaviyo.com,reject,REJECT
+HOST-SUFFIX,telemetry.goodlifefitness.com,reject,REJECT
 HOST-SUFFIX,telemetry.phenixrts.com,reject,REJECT
 HOST-SUFFIX,telemetry.reembed.com,reject,REJECT
 HOST-SUFFIX,telemetry.soundcloud.com,reject,REJECT

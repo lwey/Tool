@@ -1,7 +1,7 @@
 ## [Adblock Plus 1.1]
-## ! Version: 202311181350
+## ! Version: 202311190232
 ## ! Title: EasyPrivacy
-## ! Last modified: 18 Nov 2023 13:50 UTC
+## ! Last modified: 19 Nov 2023 02:32 UTC
 ## ! Expires: 4 days (update frequency)
 ## ! *** easylist:template_header.txt ***
 ## ! 
@@ -442,9 +442,6 @@ DOMAIN-SUFFIX,cloud-miner.eu,extended-matching
 DOMAIN-SUFFIX,de-mi-nis-ner.info,extended-matching
 DOMAIN-SUFFIX,de-ner-mi-nis4.info,extended-matching
 DOMAIN-SUFFIX,de-nis-ner-mi-5.info,extended-matching
-DOMAIN-SUFFIX,dnsseed.bitcoin.dashjr.org,extended-matching
-DOMAIN-SUFFIX,dnsseed.bluematt.me,extended-matching
-DOMAIN-SUFFIX,dnsseed.emzy.de,extended-matching
 DOMAIN-SUFFIX,f1tbit.com,extended-matching
 DOMAIN-SUFFIX,filmoljupci.com,extended-matching
 DOMAIN-SUFFIX,g1thub.com,extended-matching
@@ -458,11 +455,6 @@ DOMAIN-SUFFIX,minerad.com,extended-matching
 DOMAIN-SUFFIX,pampopholf.com,extended-matching
 DOMAIN-SUFFIX,rand.com.ru,extended-matching
 DOMAIN-SUFFIX,reauthenticator.com,extended-matching
-DOMAIN-SUFFIX,seed.bitcoin.sipa.be,extended-matching
-DOMAIN-SUFFIX,seed.bitcoin.sprovoost.nl,extended-matching
-DOMAIN-SUFFIX,seed.bitcoin.wiz.biz,extended-matching
-DOMAIN-SUFFIX,seed.bitcoinstats.com,extended-matching
-DOMAIN-SUFFIX,seed.btc.petertodd.org,extended-matching
 DOMAIN-SUFFIX,serv1swork.com,extended-matching
 DOMAIN-SUFFIX,statdynamic.com,extended-matching
 DOMAIN-SUFFIX,str1kee.com,extended-matching
@@ -2907,6 +2899,7 @@ DOMAIN-SUFFIX,tagtracking.vibescm.com,extended-matching
 DOMAIN-SUFFIX,target.mixi.media,extended-matching
 DOMAIN-SUFFIX,te.supportfreecontent.com,extended-matching
 DOMAIN-SUFFIX,telemetrics.klaviyo.com,extended-matching
+DOMAIN-SUFFIX,telemetry.goodlifefitness.com,extended-matching
 DOMAIN-SUFFIX,telemetry.phenixrts.com,extended-matching
 DOMAIN-SUFFIX,telemetry.reembed.com,extended-matching
 DOMAIN-SUFFIX,telemetry.soundcloud.com,extended-matching
