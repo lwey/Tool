@@ -2,9 +2,8 @@
 # GitLab: https://gitlab.com/lodepuly/vpn_tool/-/tree/main/tool/Loon
 # 引用地址 https://support.apple.com/en-us/HT210060
 # Apple 推送通知 - 当使用 Apple 推送通知服务 (APNS) 时，Apple 设备需要访问以下主机。
-
-HOST-SUFFIX,push.apple.com //推送通知,PROXY
-HOST,identity.apple.com //APNs 证书请求门户,PROXY
+HOST-SUFFIX,push.apple.com,PROXY
+HOST,identity.apple.com,PROXY
 IP-CIDR,17.249.0.0/16,PROXY
 IP-CIDR,17.252.0.0/16,PROXY
 IP-CIDR,17.57.144.0/22,PROXY

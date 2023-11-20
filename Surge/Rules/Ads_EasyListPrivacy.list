@@ -1,7 +1,7 @@
 ## [Adblock Plus 1.1]
-## ! Version: 202311190232
+## ! Version: 202311200211
 ## ! Title: EasyPrivacy
-## ! Last modified: 19 Nov 2023 02:32 UTC
+## ! Last modified: 20 Nov 2023 02:11 UTC
 ## ! Expires: 4 days (update frequency)
 ## ! *** easylist:template_header.txt ***
 ## ! 
@@ -4181,6 +4181,7 @@ DOMAIN-SUFFIX,t.appsflyer.com,extended-matching
 DOMAIN-SUFFIX,t.av.st,extended-matching
 DOMAIN-SUFFIX,t.birchlane.com,extended-matching
 DOMAIN-SUFFIX,t.dailymail.co.uk,extended-matching
+DOMAIN-SUFFIX,t.deepnote.com,extended-matching
 DOMAIN-SUFFIX,t.freelancer.com,extended-matching
 DOMAIN-SUFFIX,t.imgur.com,extended-matching
 DOMAIN-SUFFIX,t.indeed.com,extended-matching

@@ -1,5 +1,4 @@
 # 直连列表
-
 # MyList
 HOST-SUFFIX,13th.tech,DIRECT
 HOST-SUFFIX,423down.com,DIRECT
@@ -17,13 +16,11 @@ HOST-SUFFIX,pdfwifi.com,DIRECT
 HOST-SUFFIX,zhenguanyu.biz,DIRECT
 HOST-SUFFIX,zhenguanyu.com,DIRECT
 HOST-SUFFIX,snapdrop.net,DIRECT
-
 # CN域名直连(中国|公司|网络)
 HOST-SUFFIX,cn,DIRECT
 HOST-SUFFIX,xn--fiqs8s,DIRECT
 HOST-SUFFIX,xn--55qx5d,DIRECT
 HOST-SUFFIX,xn--io0a7i,DIRECT
-
 # 中国国内常见域名关键词直连
 HOST-KEYWORD,360buy,DIRECT
 HOST-KEYWORD,alicdn,DIRECT
@@ -41,7 +38,6 @@ HOST-KEYWORD,qhimg,DIRECT
 HOST-KEYWORD,vpimg,DIRECT
 HOST-KEYWORD,xiami,DIRECT
 HOST-KEYWORD,xiaomi,DIRECT
-
 # 360
 HOST-SUFFIX,360.com,DIRECT
 HOST-SUFFIX,360kuai.com,DIRECT
@@ -51,16 +47,13 @@ HOST-SUFFIX,qhres.com,DIRECT
 HOST-SUFFIX,qhstatic.com,DIRECT
 HOST-SUFFIX,qhupdate.com,DIRECT
 HOST-SUFFIX,so.com,DIRECT
-
 # 4399
 HOST-SUFFIX,4399.com,DIRECT
 HOST-SUFFIX,4399pk.com,DIRECT
 HOST-SUFFIX,5054399.com,DIRECT
 HOST-SUFFIX,img4399.com,DIRECT
-
 # 58
 HOST-SUFFIX,58.com,DIRECT
-
 # Alibaba
 HOST-SUFFIX,1688.com,DIRECT
 HOST-SUFFIX,aliapp.org,DIRECT
@@ -98,7 +91,6 @@ HOST-SUFFIX,xiami.com,DIRECT
 HOST-SUFFIX,xiami.net,DIRECT
 HOST-SUFFIX,ykimg.com,DIRECT
 HOST-SUFFIX,youku.com,DIRECT
-
 # Baidu
 HOST-SUFFIX,baidu.com,DIRECT
 HOST-SUFFIX,baidubcr.com,DIRECT
@@ -112,7 +104,6 @@ HOST-SUFFIX,hao123.com,DIRECT
 HOST-SUFFIX,hao123img.com,DIRECT
 HOST-SUFFIX,jomodns.com,DIRECT
 HOST-SUFFIX,yunjiasu-cdn.net,DIRECT
-
 # Bilibili
 HOST-SUFFIX,acg.tv,DIRECT
 HOST-SUFFIX,acgvideo.com,DIRECT
@@ -129,7 +120,6 @@ HOST-SUFFIX,bilivideo.cn,DIRECT
 HOST-SUFFIX,hdslb.com,DIRECT
 HOST-SUFFIX,im9.com,DIRECT
 HOST-SUFFIX,smtcdns.net,DIRECT
-
 # ByteDance
 HOST-SUFFIX,amemv.com,DIRECT
 HOST-SUFFIX,bdxiguaimg.com,DIRECT
@@ -175,33 +165,27 @@ HOST-SUFFIX,zijieapi.com,DIRECT
 HOST-SUFFIX,zijieimg.com,DIRECT
 HOST-SUFFIX,zjbyte.com,DIRECT
 HOST-SUFFIX,zjcdn.com,DIRECT
-
 # CCTV
 HOST-SUFFIX,cctv.com,DIRECT
 HOST-SUFFIX,cctvpic.com,DIRECT
 HOST-SUFFIX,livechina.com,DIRECT
-
 # ChinaNet
 HOST-SUFFIX,21cn.com,DIRECT
-
 # DiDi
 HOST-SUFFIX,didialift.com,DIRECT
 HOST-SUFFIX,didiglobal.com,DIRECT
 HOST-SUFFIX,udache.com,DIRECT
-
 # Douyu 斗鱼
 HOST-SUFFIX,douyu.com,DIRECT
 HOST-SUFFIX,douyu.tv,DIRECT
 HOST-SUFFIX,douyuscdn.com,DIRECT
 HOST-SUFFIX,douyutv.com,DIRECT
-
 # Epic
 HOST-SUFFIX,epicgames.com,DIRECT
 HOST-SUFFIX,epicgames.dev,DIRECT
 HOST-SUFFIX,helpshift.com,DIRECT
 HOST-SUFFIX,paragon.com,DIRECT
 HOST-SUFFIX,unrealengine.com,DIRECT
-
 # HuaWei
 HOST-SUFFIX,dbankcdn.com,DIRECT
 HOST-SUFFIX,hc-cdn.com,DIRECT
@@ -213,7 +197,6 @@ HOST-SUFFIX,huaweishop.net,DIRECT
 HOST-SUFFIX,hwccpc.com,DIRECT
 HOST-SUFFIX,vmall.com,DIRECT
 HOST-SUFFIX,vmallres.com,DIRECT
-
 # Heytap
 HOST-SUFFIX,allawnfs.com,DIRECT
 HOST-SUFFIX,allawno.com,DIRECT
@@ -227,12 +210,10 @@ HOST-SUFFIX,heytapmobi.com,DIRECT
 HOST-SUFFIX,oppo.com,DIRECT
 HOST-SUFFIX,oppoer.me,DIRECT
 HOST-SUFFIX,oppomobile.com,DIRECT
-
 # Iflytek 科大讯飞
 HOST-SUFFIX,iflyink.com,DIRECT
 HOST-SUFFIX,iflyrec.com,DIRECT
 HOST-SUFFIX,iflytek.com,DIRECT
-
 # Iqiyi
 HOST-SUFFIX,71.am,DIRECT
 HOST-SUFFIX,71edge.com,DIRECT
@@ -242,7 +223,6 @@ HOST-SUFFIX,ppsimg.com,DIRECT
 HOST-SUFFIX,qiyi.com,DIRECT
 HOST-SUFFIX,qiyipic.com,DIRECT
 HOST-SUFFIX,qy.net,DIRECT
-
 # JD
 HOST-SUFFIX,360buy.com,DIRECT
 HOST-SUFFIX,360buyimg.com,DIRECT
@@ -252,22 +232,18 @@ HOST-SUFFIX,jd.hk,DIRECT
 HOST-SUFFIX,jdcloud.com,DIRECT
 HOST-SUFFIX,jdpay.com,DIRECT
 HOST-SUFFIX,paipai.com,DIRECT
-
 # Kingsoft
 HOST-SUFFIX,iciba.com,DIRECT
 HOST-SUFFIX,ksosoft.com,DIRECT
 HOST-SUFFIX,ksyun.com,DIRECT
-
 # Kuaishou 快手
 HOST-SUFFIX,kuaishou.com,DIRECT
 HOST-SUFFIX,yximgs.com,DIRECT
-
 # Meitu
 HOST-SUFFIX,meitu.com,DIRECT
 HOST-SUFFIX,meitudata.com,DIRECT
 HOST-SUFFIX,meitustat.com,DIRECT
 HOST-SUFFIX,meipai.com,DIRECT
-
 # LeTV 乐视
 HOST-SUFFIX,le.com,DIRECT
 HOST-SUFFIX,lecloud.com,DIRECT
@@ -276,12 +252,10 @@ HOST-SUFFIX,letvcloud.com,DIRECT
 HOST-SUFFIX,letvimg.com,DIRECT
 HOST-SUFFIX,letvlive.com,DIRECT
 HOST-SUFFIX,letvstore.com,DIRECT
-
 # MGTV 芒果TV
 HOST-SUFFIX,hitv.com,DIRECT
 HOST-SUFFIX,hunantv.com,DIRECT
 HOST-SUFFIX,mgtv.com,DIRECT
-
 # MI
 HOST-SUFFIX,duokan.com,DIRECT
 HOST-SUFFIX,mi-img.com,DIRECT
@@ -290,7 +264,6 @@ HOST-SUFFIX,miui.com,DIRECT
 HOST-SUFFIX,xiaomi.com,DIRECT
 HOST-SUFFIX,xiaomi.net,DIRECT
 HOST-SUFFIX,xiaomicp.com,DIRECT
-
 # NetEase
 HOST-SUFFIX,126.com,DIRECT
 HOST-SUFFIX,126.net,DIRECT
@@ -301,15 +274,12 @@ HOST-SUFFIX,lofter.com,DIRECT
 HOST-SUFFIX,netease.com,DIRECT
 HOST-SUFFIX,ydstatic.com,DIRECT
 HOST-SUFFIX,youdao.com,DIRECT
-
 # PPTV、PPLive
 HOST-SUFFIX,pplive.com,DIRECT
 HOST-SUFFIX,pptv.com,DIRECT
-
 # PDD 拼多多
 HOST-SUFFIX,pinduoduo.com,DIRECT
 HOST-SUFFIX,yangkeduo.com,DIRECT
-
 # Sina
 HOST-SUFFIX,leju.com,DIRECT
 HOST-SUFFIX,miaopai.com,DIRECT
@@ -325,7 +295,6 @@ HOST-SUFFIX,weibo.cn,DIRECT
 HOST-SUFFIX,weibocdn.com,DIRECT
 HOST-SUFFIX,weibocdn.cn,DIRECT
 HOST-SUFFIX,xiaoka.tv,DIRECT
-
 # Sohu Sogo
 HOST-SUFFIX,go2map.com,DIRECT
 HOST-SUFFIX,sogo.com,DIRECT
@@ -337,14 +306,12 @@ HOST-SUFFIX,sohucs.com,DIRECT
 HOST-SUFFIX,sohuno.com,DIRECT
 HOST-SUFFIX,sohurdc.com,DIRECT
 HOST-SUFFIX,v-56.com,DIRECT
-
 # Sony
 HOST-SUFFIX,playstation.com,DIRECT
 HOST-SUFFIX,playstation.net,DIRECT
 HOST-SUFFIX,playstationnetwork.com,DIRECT
 HOST-SUFFIX,sony.com,DIRECT
 HOST-SUFFIX,sonyentertainmentnetwork.com,DIRECT
-
 # SteamCN
 HOST-SUFFIX,cm.steampowered.com,DIRECT
 HOST-SUFFIX,steamcontent.com,DIRECT
@@ -362,7 +329,6 @@ HOST,xz.pphimalayanrt.com,DIRECT
 HOST,steampipe.steamcontent.tnkjmec.com,DIRECT
 HOST,steampowered.com.8686c.com,DIRECT
 HOST,steamstatic.com.8686c.com,DIRECT
-
 # Tencent
 HOST-SUFFIX,foxmail.com,DIRECT
 HOST-SUFFIX,gtimg.com,DIRECT
@@ -383,17 +349,14 @@ HOST-SUFFIX,tenpay.com,DIRECT
 HOST-SUFFIX,wechat.com,DIRECT
 HOST-SUFFIX,weixin.com,DIRECT
 HOST-SUFFIX,weiyun.com,DIRECT
-
 # Vip 唯品会
 HOST-SUFFIX,appsimg.com,DIRECT
 HOST-SUFFIX,appvipshop.com,DIRECT
 HOST-SUFFIX,vip.com,DIRECT
 HOST-SUFFIX,vipstatic.com,DIRECT
-
 # Ximalaya 喜马拉雅
 HOST-SUFFIX,ximalaya.com,DIRECT
 HOST-SUFFIX,xmcdn.com,DIRECT
-
 # Xunlei 迅雷
 HOST-SUFFIX,00cdn.com,DIRECT
 HOST-SUFFIX,88cdn.com,DIRECT
@@ -403,7 +366,6 @@ HOST-SUFFIX,p2cdn.com,DIRECT
 HOST-SUFFIX,sandai.net,DIRECT
 HOST-SUFFIX,thundercdn.com,DIRECT
 HOST-SUFFIX,xunlei.com,DIRECT
-
 # YYeTs 人人影视
 HOST-SUFFIX,got001.com,DIRECT
 HOST-SUFFIX,p4pfile.com,DIRECT
@@ -420,7 +382,6 @@ HOST-SUFFIX,zmz2019.com,DIRECT
 HOST-SUFFIX,zmzapi.com,DIRECT
 HOST-SUFFIX,zmzapi.net,DIRECT
 HOST-SUFFIX,zmzfile.com,DIRECT
-
 # TeamViewer
 HOST-SUFFIX,teamviewer.com,DIRECT
 IP-CIDR,139.220.243.27/32,DIRECT
@@ -431,7 +392,6 @@ IP6-CIDR,2a0b:b580::/48,DIRECT
 IP6-CIDR,2a0b:b581::/48,DIRECT
 IP6-CIDR,2a0b:b582::/48,DIRECT
 IP6-CIDR,2a0b:b583::/48,DIRECT
-
 # Public Direct CDN 公共直连
 #HOST-SUFFIX,ajax.aspnetcdn.com
 #HOST-SUFFIX,ajax.cloudflare.com
@@ -442,13 +402,11 @@ HOST-SUFFIX,bootcss.com,DIRECT
 HOST-SUFFIX,jiasule.com,DIRECT
 HOST-SUFFIX,staticfile.org,DIRECT
 HOST-SUFFIX,upaiyun.com,DIRECT
-
 # China DNS
 HOST-SUFFIX,doh.pub,DIRECT
 HOST-SUFFIX,dns.alidns.com,DIRECT
 HOST-SUFFIX,doh.360.cn,DIRECT
 IP-CIDR,1.12.12.12/32,DIRECT
-
 # AccelerateDirectSites
 HOST-SUFFIX,10010.com,DIRECT
 HOST-SUFFIX,115.com,DIRECT

@@ -287,6 +287,8 @@ jobs:
             # 删除no-resolve
             sed -i 's/,no-resolve//g' "$file"
             # 删除"//" 以及后面的所有字符
+            awk '{sub(" \\/\\/.*$", ""); print}' "$file" > tmpfile
+            mv tmpfile "$file"
             awk '{sub("\\/\\/ .*$", ""); print}' "$file" > tmpfile
             mv tmpfile "$file"
             # 删除“PROCESS-NAME”规则
@@ -294,7 +296,9 @@ jobs:
             mv tmpfile "$file"
             # 在非空行和注释后添加DIRECT
             awk '!/^[[:space:]]*(#|$)/ && !/,PROXY$/ {print $0",PROXY"}; /^[[:space:]]*(#|$)|,PROXY$/ {print $0}' "$file" > tmpfile
-            mv tmpfile "$file"            
+            mv tmpfile "$file"  
+            # 删除空行
+            sed -i '/^[[:space:]]*$/d' "$file"         
           else
             echo "$file not found."
           fi

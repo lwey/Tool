@@ -1,7 +1,7 @@
 ## [Adblock Plus 1.1]
-## ! Version: 202311190232
+## ! Version: 202311200211
 ## ! Title: EasyPrivacy
-## ! Last modified: 19 Nov 2023 02:32 UTC
+## ! Last modified: 20 Nov 2023 02:11 UTC
 ## ! Expires: 4 days (update frequency)
 ## ! *** easylist:template_header.txt ***
 ## ! 
@@ -13,8 +13,6 @@
 ## ! Licence: https://easylist.to/pages/licence.html
 ## ! GitHub issues: https://github.com/easylist/easylist/issues
 ## ! GitHub pull requests: https://github.com/easylist/easylist/pulls
-
-
 HOST-SUFFIX,00px.net,reject,REJECT
 HOST-SUFFIX,1cros.net,reject,REJECT
 HOST-SUFFIX,2022welcome.com,reject,REJECT
@@ -4181,6 +4179,7 @@ HOST-SUFFIX,t.appsflyer.com,reject,REJECT
 HOST-SUFFIX,t.av.st,reject,REJECT
 HOST-SUFFIX,t.birchlane.com,reject,REJECT
 HOST-SUFFIX,t.dailymail.co.uk,reject,REJECT
+HOST-SUFFIX,t.deepnote.com,reject,REJECT
 HOST-SUFFIX,t.freelancer.com,reject,REJECT
 HOST-SUFFIX,t.imgur.com,reject,REJECT
 HOST-SUFFIX,t.indeed.com,reject,REJECT

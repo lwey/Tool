@@ -14,13 +14,15 @@
 
 **_自用 自动测速 配置_**
 ```
-https://raw.githubusercontent.com/Repcz/Tool/X/Surfboard/OwnUse.ini
+https://raw.githubusercontent.com/Repcz/Tool/X/Surfboard/Online_Full_Auto.ini
 ```
 
 **_自用 多流媒体分组 自动测速 配置_**
+
 ```
-https://raw.githubusercontent.com/Repcz/Tool/X/Surfboard/More%20streaming.ini
+https://raw.githubusercontent.com/Repcz/Tool/X/Surfboard/Online_Full_NoAuto.ini
 ```
+
 #### 3.修改客户端为 **Surfboard**
 #### 4. 选择后端地址并生成订阅
 ![Image text](https://github.com/Repcz/Tool/blob/X/Surfboard/Photo/IMG_2204.PNG)
@@ -200,8 +202,6 @@ IP-CIDR,182.254.116.0/24, DIRECT
 GEOIP,CN, DIRECT
 FINAL,🐟 漏网之鱼
 
-
- 
 ```
 
 
