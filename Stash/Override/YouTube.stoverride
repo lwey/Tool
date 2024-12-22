@@ -28,14 +28,14 @@ http:
       argument: |-
         {"lyricLang":"zh-Hans","captionLang":"zh-Hans","blockUpload":true,"blockImmersive":true,"debug":false}
 
-script:
-  shortcuts:
-    udp-googlevideo: network == 'udp' and (host.endswith('+.googlevideo.com') or host.endswith('+.googleapi.com'))
-
 script-providers:
   "youtube.response":
     url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.preview.js
     interval: 86400
 
+script:
+  shortcuts:
+    quic-googlevideo: network == 'udp' and (host.endswith('+.googlevideo.com') or host.endswith('+.googleapi.com'))
+
 rules:
-  - SCRIPT,udp-googlevideo,REJECT
+  - SCRIPT,quic-googlevideo,REJECT
