@@ -10,9 +10,6 @@ http:
     - "kelee.one"
 
   header-rewrite:
-    - >-
-      ttps:\/\/(.*\.)?kelee\.one(\/.*)? request-replace 'User-Agent' 'Surge iOS/9527'
-    - >-
-      https:\/\/(.*\.)?kelee\.one(\/.*)? response-add 'content-disposition' 'inline'
-    - >-
-      https:\/\/(.*\.)?kelee\.one(\/.*)? response-replace 'content-type' 'text/plain; charset=utf-8'
+    - https:\/\/(.*\.)?kelee\.one(\/.*)? request-replace 'User-Agent' 'Surge iOS/9527'
+    - https:\/\/(.*\.)?kelee\.one(\/.*)? response-add 'content-disposition' 'inline'
+    - https:\/\/(.*\.)?kelee\.one(\/.*)? response-replace 'content-type' 'text/plain; charset=utf-8'
