@@ -1,18 +1,13 @@
-name: |-
-  功能｜Kelee 资源预览
-desc: |-
-  预览资源，而不是下载
-icon: |-
-  https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/KeLee.png
-homepage: |-
-  https://github.com/luestr/ProxyResource/tree/main?tab=readme-ov-file#插件列表
-tag: |-
-  ⚙️ ▸ Function
+name: 功能｜Kelee 资源预览
+desc: 预览资源，而不是下载
+icon: https://raw.githubusercontent.com/luestr/IconResource/main/Other_icon/120px/KeLee.png
+category: ⚙️ ▸ Function
 
 http:
 
   mitm:
-    - "+.kelee.one"
+    - "*.kelee.one"
+    - "kelee.one"
 
   header-rewrite:
     - >-
