@@ -6,7 +6,7 @@ category: ⚙️ ▸ Function
 http:
 
   mitm:
-    - ".kelee.one"
+    - "*.kelee.one"
     - "kelee.one"
 
   header-rewrite:
