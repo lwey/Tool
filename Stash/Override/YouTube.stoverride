@@ -12,7 +12,7 @@ category: |-
 http:
 
   mitm:
-    - "*.googlevideo.com"
+    - ".googlevideo.com"
     - "youtubei.googleapis.com"
 
   url-rewrite:
