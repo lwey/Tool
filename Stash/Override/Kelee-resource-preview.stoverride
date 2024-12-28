@@ -7,6 +7,7 @@ http:
 
   mitm:
     - ".kelee.one"
+    - "kelee.one"
 
   header-rewrite:
     - ^https:\/\/(.*\.)?kelee\.one(\/.*)? request-replace User-Agent Surge iOS/9527
