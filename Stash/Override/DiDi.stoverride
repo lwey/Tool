@@ -69,7 +69,7 @@ script-providers:
 script:
   shortcuts:
     DD_IP1: ipasn(dst_ip) == 45090 and dst_port == 25641 and network == 'tcp'
-    DD_IP1: ipasn(dst_ip) == 63646 and dst_port == 25641 and network == 'tcp'
+    DD_IP2: ipasn(dst_ip) == 63646 and dst_port == 25641 and network == 'tcp'
 
 rules:
   - SCRIPT,DD_IP1,REJECT
