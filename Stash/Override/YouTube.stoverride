@@ -22,7 +22,8 @@ http:
       require-body: true
       max-size: -1
       binary-mode: true
-      argument: {"lyricLang":"zh-Hans","captionLang":"zh-Hans","blockUpload":true,"blockImmersive":true,"debug":false}
+      argument: |-
+        {"lyricLang":"zh-Hans","captionLang":"zh-Hans","blockUpload":true,"blockImmersive":true,"debug":false}
 
 script-providers:
   "youtube.response":
