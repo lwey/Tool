@@ -6,12 +6,7 @@ desc: |-
 icon: https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Amap.png
 category: ⚙️ ▸ NoAds
 
-script:
-  shortcuts:
-    Amap: re.match(r'^http:\/\/.+\/amdc\/mobileDispatch', host) is not None and 'AMapiPhone*' in headers.get('User-Agent', '')
-
 rules:
-  - SCRIPT,Amap,REJECT
   - DOMAIN,amap-aos-info-nogw.amap.com,REJECT
   - DOMAIN,free-aos-cdn-image.amap.com,REJECT
   - DOMAIN-SUFFIX,v.smtcdns.com,REJECT
@@ -134,6 +129,15 @@ http:
       name: "Amap_remove_ads"
       type: response
       require-body: true
+
+    - match: ^http://.+/amdc/mobileDispatch
+      name: Stash/Script/Amap_ua_ads.js
+      type: request # 在请求阶段执行
+      require-body: false
+      timeout: 20
+      argument: ''
+      binary-mode: false
+      max-size: 1048576 # 1MB
 
 script-providers:
   "body-rewrite":
