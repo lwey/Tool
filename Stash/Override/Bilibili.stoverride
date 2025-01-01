@@ -2,7 +2,7 @@ name: Bilibili增强
 desc: |-
   拜托，没有广告的哔哩哔哩真的超酷的
   作者: @kokoryh @Script-Hub
-  最后更新时间: 2025-01-01 19:30
+  最后更新时间: 2025-01-01 19:40
 icon: https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Bilibili.png
 category: ⚙️ ▸ NoAds
 
@@ -21,8 +21,7 @@ http:
     - "api.live.bilibili.com"
 
   url-rewrite:
-    - >-
-      ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? - reject-dict
+    - ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? - reject-dict
 
   body-rewrite:
     - ^https:\/\/api\.bilibili\.com\/pgc\/page\/(?:bangumi|cinema\/tab\?) response-jq .result.modules |= if . then map(if (.style | startswith("tip")) or (.module_id | IN(241, 1283, 1441, 1284)) then .items = [] elif .style | startswith("banner") then .items |= if . then map(select(.link | contains("play"))) else [] end elif .style | startswith("function") then .items |= if . then map(select(.blink | startswith("bilibili"))) else [] end end) end
