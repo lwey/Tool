@@ -60,6 +60,6 @@ hotspot.cslwifi.com = server:syslib // csl Wi-Fi
 
 # > Apple
 # refer: https://support.apple.com/zh-cn/HT210060
-networking.apple = server:server:syslib // Apple
-*.apple.com = server:server:syslib // Apple.com
-*.icloud.com = server:server:syslib // iCloud.com
+networking.apple = server:syslib // Apple
+*.apple.com = server:syslib // Apple.com
+*.icloud.com = server:syslib // iCloud.com
