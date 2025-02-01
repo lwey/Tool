@@ -16,7 +16,7 @@ rules:
 - and:
     match:
     - protocol:
-        match: quic
+        match: udp
     - or:
         match:
         - domain:
