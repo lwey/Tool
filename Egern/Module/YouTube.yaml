@@ -1,7 +1,7 @@
 name: Youtube (Music) Enhance
 description: |-
   适用于 Youtube & Youtube Music
-  作者: @Maasea @Script-Hub
+  作者: @Maasea @Egern
   最后更新时间: 2025-02-01 22:00
 compat_arguments:
   屏蔽上传按钮: 'true'
@@ -10,10 +10,7 @@ compat_arguments:
   歌词翻译语言: zh-Hans
   脚本执行引擎: auto
   启用调试模式: 'false'
-compat_arguments_desc: |-
-  屏蔽参数：[true, false] 
-  翻译参数：[语言代码, off]
-  开启调试模式用于输出更多日志
+compat_arguments_desc: "屏蔽参数：[true, false] \n翻译参数：[语言代码, off]\n开启调试模式用于输出更多日志"
 rules:
 - and:
     match:
