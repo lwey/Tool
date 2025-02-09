@@ -121,19 +121,19 @@ jobs:
                 "PayPal.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/PayPal/PayPal.list"
                 # Cloudflare
                 "Cloudflare.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Cloudflare/Cloudflare.list"
-                # 游戏规则 
+                # 游戏规则
                 "Steam.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Steam/Steam.list"
                 "Epic.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Epic/Epic.list"
                 "Game.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Game/Game.list"
                 # 下载CDN
                 "DownloadCDN_Global.list https://kelee.one/Tool/Loon/Rule/InternationalDownloadCDN.list"
                 "DownloadCDN_CN.list https://kelee.one/Tool/Loon/Rule/ChinaDownloadCDN.list"
-                # 国内规则 
+                # 国内规则
                 "Bilibili.list https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list"
                 "WeChat.list https://raw.githubusercontent.com/NobyDa/Script/master/Surge/WeChat.list"
                 "ChinaASN.list https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.list"
                 "ChinaDomain.list https://ruleset.skk.moe/List/non_ip/domestic.conf"
-                # 广告规则 
+                # 广告规则
                 "Ads_limbopro.list https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Surge/rule/Adblock4limbo_surge.list"
                 "Ads_EasyListChina.list https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/rule/Surge/easylistchina_surge.list"
                 "Ads_EasyListPrivacy.list https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/rule/Surge/easyprivacy_surge.list"
@@ -246,98 +246,15 @@ jobs:
           fi
         done
 
-    - name: Setup jq and sed
-      run: apt-get update && apt-get install -y jq sed
-
     - name: Egern
       run: |
-        # 定义解析逻辑的函数
-        parse_logic_to_json() {
-          local rule="$1"
-          
-          # 去掉最外层括号
-          rule=$(echo "$rule" | sed -E 's/^$+|$+$//g')
-
-          if [[ "$rule" =~ ^AND, ]]; then
-              echo -n '{ "and": ['
-              rule="${rule#AND,}"
-          elif [[ "$rule" =~ ^OR, ]]; then
-              echo -n '{ "or": ['
-              rule="${rule#OR,}"
-          elif [[ "$rule" =~ ^NOT, ]]; then
-              echo -n '{ "not": ['
-              rule="${rule#NOT,}"
-          else
-              echo -n '{ "match": ['
-          fi
-
-          IFS=',' read -ra parts <<< "$rule"
-          local first=1
-          for part in "${parts[@]}"; do
-              part=$(echo "$part" | xargs)  # 去掉前后空格
-              [[ $first -eq 0 ]] && echo -n ", "
-              first=0
-
-              if [[ "$part" =~ ^(AND|OR|NOT), ]]; then
-                  echo -n "$(parse_logic_to_json "$part")"
-              elif [[ "$part" =~ DOMAIN-SUFFIX, ]]; then
-                  value="${part#DOMAIN-SUFFIX,}"
-                  echo -n "{ \"domain_suffix\": \"$value\" }"
-              elif [[ "$part" =~ DOMAIN-KEYWORD, ]]; then
-                  value="${part#DOMAIN-KEYWORD,}"
-                  echo -n "{ \"domain_keyword\": \"$value\" }"
-              elif [[ "$part" =~ DOMAIN, ]]; then
-                  value="${part#DOMAIN,}"
-                  echo -n "{ \"domain\": \"$value\" }"
-              elif [[ "$part" =~ PROTOCOL, ]]; then
-                  value="${part#PROTOCOL,}"
-                  echo -n "{ \"protocol\": \"$value\" }"
-              elif [[ "$part" =~ GEOIP, ]]; then
-                  value="${part#GEOIP,}"
-                  echo -n "{ \"geoip\": \"$value\" }"
-              elif [[ "$part" =~ IP-CIDR6, ]]; then
-                  value="${part#IP-CIDR6,}"
-                  echo -n "{ \"ip_cidr6\": \"$value\" }"
-              elif [[ "$part" =~ IP-CIDR, ]]; then
-                  value="${part#IP-CIDR,}"
-                  echo -n "{ \"ip_cidr\": \"$value\" }"
-              elif [[ "$part" =~ IP-ASN, ]]; then
-                  value="${part#IP-ASN,}"
-                  echo -n "{ \"ip_asn\": \"$value\" }"
-              elif [[ "$part" =~ DEST-PORT, ]]; then
-                  value="${part#DEST-PORT,}"
-                  echo -n "{ \"dest_port\": \"$value\" }"
-              elif [[ "$part" =~ URL-REGEX, ]]; then
-                  value="${part#URL-REGEX,}"
-                  echo -n "{ \"url_regex\": \"$value\" }"
-              fi
-          done
-          echo -n '] }'
-        }
-
-        # 解析规则文件中的逻辑部分
         for file in Tool-repo/Egern/Rules/*.yaml; do
           if [ -f "$file" ]; then
             sed -i -e '/^USER-AGENT/d' "$file"
             sed -i -e '/^PROCESS-NAME/d' "$file"
-
-            # 解析 AND, OR, NOT 逻辑规则为 JSON
-            grep -E '^(AND|OR|NOT),,' "$file" | while IFS= read -r line; do
-              json_output=$(parse_logic_to_json "$line")
-              echo "$json_output" >> "$file.json"
-            done
-            sed -i -e '/^AND,/,/^}/d' "$file"
-
-            # 转换 JSON 为 YAML
-            jq -r 'def yaml: . as $in | if $in | type == "array" then 
-                    ($in | map(yaml) | join("\n")) 
-                  elif $in | type == "object" then 
-                    ($in | to_entries | map("$.key):\n  $.value | yaml)") | join("\n")) 
-                  else 
-                    "- " + ($in | tostring) 
-                  end; yaml' "$file.json" > "$file"
-            rm -f "$file.json"
-
+            sed -i -e '/^AND/d' "$file"
+            sed -i -e '/^OR/d' "$file"
+            sed -i -e '/^NOT/d' "$file"
             awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
             awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
             awk '/^DOMAIN-KEYWORD,/ && !added {print "domain_keyword_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
@@ -370,7 +287,7 @@ jobs:
             echo "$file not found."
           fi
         done
-
+  
     - name: Loon
       run: |
         for file in Tool-repo/Loon/Rules/*.list; do
