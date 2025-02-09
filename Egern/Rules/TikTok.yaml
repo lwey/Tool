@@ -1,6 +1,3 @@
-# 规则名称: TikTok
-# 规则统计: 96
-
 domain_set:
   - api.snapkit.com
   - cocacola.co.jp

@@ -1,6 +1,3 @@
-# 规则名称: AdGuardChinese
-# 规则统计: 5058
-
 domain_suffix_set:
   - 002777.xyz
   - 003store.com

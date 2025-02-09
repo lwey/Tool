@@ -1,6 +1,3 @@
-# 规则名称: DownloadCDN_CN
-# 规则统计: 17
-
 domain_set:
   - alibaba.cdn.steampipe.steamcontent.com
   - assets1.xboxlive.cn

@@ -1,7 +1,3 @@
-# 规则名称: ProxyGFW
-# 规则统计: 6912
-
-no_resolve: true
 domain_set:
   - cloud.oracle.com
   - steambroadcast.akamaized.net

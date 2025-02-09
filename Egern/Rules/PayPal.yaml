@@ -1,6 +1,3 @@
-# 规则名称: PayPal
-# 规则统计: 247
-
 domain_suffix_set:
   - account-paypal.info
   - account-paypal.net

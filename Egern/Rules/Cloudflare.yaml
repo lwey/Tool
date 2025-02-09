@@ -1,7 +1,3 @@
-# 规则名称: Cloudflare
-# 规则统计: 65
-
-no_resolve: true
 domain_suffix_set:
   - cf-ipfs.com
   - cf-ns.com

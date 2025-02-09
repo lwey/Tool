@@ -1,6 +1,3 @@
-# 规则名称: HBO
-# 规则统计: 47
-
 domain_suffix_set:
   - bcbolthboa-a.akamaihd.net
   - cf-images.ap-southeast-1.prod.boltdns.net

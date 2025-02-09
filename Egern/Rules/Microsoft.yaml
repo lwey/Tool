@@ -1,6 +1,3 @@
-# 规则名称: Microsoft
-# 规则统计: 79
-
 domain_suffix_set:
   - aadrm.com
   - acompli.com

@@ -1,7 +1,3 @@
-# 规则名称: APNs
-# 规则统计: 11
-
-no_resolve: true
 domain_set:
   - identity.apple.com
 domain_suffix_set:

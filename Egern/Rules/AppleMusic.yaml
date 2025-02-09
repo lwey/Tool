@@ -1,6 +1,3 @@
-# 规则名称: AppleMusic
-# 规则统计: 9
-
 domain_set:
   - aod-ssl.itunes.apple.com
   - aod.itunes.apple.com

@@ -1,6 +1,3 @@
-# 规则名称: Trust
-# 规则统计: 13
-
 domain_set:
   - api.avax.network
 domain_suffix_set:

@@ -1,7 +1,3 @@
-# 规则名称: Apple
-# 规则统计: 44
-
-no_resolve: true
 domain_set:
   - apple.comscoreresearch.com
 domain_suffix_set:

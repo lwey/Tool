@@ -1,7 +1,3 @@
-# 规则名称: Netflix
-# 规则统计: 40
-
-no_resolve: true
 domain_set:
   - netflix.com.edgesuite.net
 domain_suffix_set:
