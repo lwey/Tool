@@ -1,4 +1,3 @@
-domain_set:
 DOMAIN,0x0.st
 DOMAIN,3dna.nationbuilder.com
 DOMAIN,4gtvimg2.4gtv.tv
@@ -2173,7 +2172,6 @@ DOMAIN,wwwimages2.adobe.com
 DOMAIN,xpaywalletcdn.azureedge.net
 DOMAIN,yep.video.yahoo.com
 DOMAIN,zephr-templates.cnbc.com
-domain_suffix_set:
 DOMAIN-SUFFIX,1passwordusercontent.ca
 DOMAIN-SUFFIX,1passwordusercontent.com
 DOMAIN-SUFFIX,1passwordusercontent.eu
@@ -3104,7 +3102,6 @@ DOMAIN-SUFFIX,zohostatic.com
 DOMAIN-SUFFIX,zohostatic.eu
 DOMAIN-SUFFIX,zohowebstatic.com
 DOMAIN-SUFFIX,zorocdn.xyz
-domain_keyword_set:
 DOMAIN-KEYWORD,-cdn.eporner.com
 DOMAIN-KEYWORD,-files.gitbook.io
 DOMAIN-KEYWORD,-res.cloudinary.com
@@ -3152,6 +3149,5 @@ DOMAIN-WILDCARD,video-thumbnail2.liaoningmovie.net
 DOMAIN-WILDCARD,video?-thumbnail?.fc2.com
 DOMAIN-WILDCARD,video?-thumbnail?.liaoningmovie.net
 DOMAIN-WILDCARD,vip-videoprem*-thumbnail?.fc2.com
-url_regex_set:
 URL-REGEX,^http://www\.microsoft\.com/pki/
 URL-REGEX,^http://www\.microsoft\.com/pkiops/

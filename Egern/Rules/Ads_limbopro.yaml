@@ -1,4 +1,3 @@
-domain_set:
 DOMAIN,118.89.204.198
 DOMAIN,25e87c0802f91cf8cgg.6uzxtlv.cn
 DOMAIN,a.wkanx.com
@@ -222,7 +221,6 @@ DOMAIN,wa.gtimg.com
 DOMAIN,ws.ksmobile.net
 DOMAIN,yt-adp.nosdn.127.net
 DOMAIN,yt-adp.ws.126.net
-domain_suffix_set:
 DOMAIN-SUFFIX,107iwh.cn
 DOMAIN-SUFFIX,22c.in
 DOMAIN-SUFFIX,2700.5mgrgsc.cn
@@ -476,7 +474,6 @@ DOMAIN-SUFFIX,xxxjmp.com
 DOMAIN-SUFFIX,yandex.ru
 DOMAIN-SUFFIX,youradexchange.com
 DOMAIN-SUFFIX,zprofuqkssny.com
-domain_keyword_set:
 DOMAIN-KEYWORD,112wan
 DOMAIN-KEYWORD,789htbet
 DOMAIN-KEYWORD,adform

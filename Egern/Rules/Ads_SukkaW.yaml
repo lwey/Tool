@@ -1,4 +1,3 @@
-domain_set:
 DOMAIN,2016.sina.cn
 DOMAIN,9ibbcq2d.sina.cn
 DOMAIN,a.alimama.cn
@@ -804,7 +803,6 @@ DOMAIN,zhwnlapi.etouch.cn
 DOMAIN,zuimeitianqi.inveno.com
 DOMAIN,zx.game.xiaomi.com
 DOMAIN,zzy1.quyaoya.com
-domain_suffix_set:
 DOMAIN-SUFFIX,0.101tubeporn.com
 DOMAIN-SUFFIX,0.code.cotsta.ru
 DOMAIN-SUFFIX,0.myikas.com
@@ -73418,7 +73416,6 @@ DOMAIN-SUFFIX,zzsomo.footjoy.com
 DOMAIN-SUFFIX,zzsqqx.shopjapan.co.jp
 DOMAIN-SUFFIX,zztxfj.xyz
 DOMAIN-SUFFIX,zzz.nafnaf.com
-domain_keyword_set:
 DOMAIN-KEYWORD,-attr.appsflyersdk.com
 DOMAIN-KEYWORD,-launches.appsflyersdk.com
 DOMAIN-KEYWORD,-logging.nextmedia.com
@@ -73485,7 +73482,6 @@ DOMAIN-WILDCARD,adv0*.msa.cdn.mediaset.net
 DOMAIN-WILDCARD,beacons*.gvt?.com
 DOMAIN-WILDCARD,f-log*.grammarly.io
 DOMAIN-WILDCARD,tracking.*.miui.com
-ip_cidr_set:
 IP-CIDR,101.124.19.122/32,no-resolve
 IP-CIDR,101.35.204.35/32,no-resolve
 IP-CIDR,103.224.222.208/32,no-resolve
@@ -73512,11 +73508,9 @@ IP-CIDR,42.81.232.18/32,no-resolve
 IP-CIDR,59.111.239.61/32,no-resolve
 IP-CIDR,59.111.239.62/32,no-resolve
 IP-CIDR,59.82.99.47/32,no-resolve
-ip_cidr6_set:
 IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,no-resolve
 IP-CIDR6,2402:4e00:1900:1700:0:9554:1ad9:c3a/128,no-resolve
 IP-CIDR6,2402:db40:5100:1011::5/128,no-resolve
 IP-CIDR6,240e:928:1400:10::25/128,no-resolve
-url_regex_set:
 URL-REGEX,/\d+/resolve
 URL-REGEX,/\d+/sign_d

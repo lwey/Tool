@@ -1,6 +1,4 @@
-domain_set:
 DOMAIN,api.avax.network
-domain_suffix_set:
 DOMAIN-SUFFIX,ankr.com
 DOMAIN-SUFFIX,coinpedia.org
 DOMAIN-SUFFIX,crypto.news

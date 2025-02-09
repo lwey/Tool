@@ -1,7 +1,5 @@
-domain_set:
 DOMAIN,youtubei.googleapis.com
 DOMAIN,yt3.ggpht.com
-domain_suffix_set:
 DOMAIN-SUFFIX,googlevideo.com
 DOMAIN-SUFFIX,gvt2.com
 DOMAIN-SUFFIX,withyoutube.com
@@ -13,5 +11,4 @@ DOMAIN-SUFFIX,youtubegaming.com
 DOMAIN-SUFFIX,youtubekids.com
 DOMAIN-SUFFIX,yt.be
 DOMAIN-SUFFIX,ytimg.com
-domain_keyword_set:
 DOMAIN-KEYWORD,youtube

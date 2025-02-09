@@ -1,7 +1,5 @@
-domain_set:
 DOMAIN,api.mixpanel.com
 DOMAIN,events-gateway.ncdev.site
-domain_suffix_set:
 DOMAIN-SUFFIX,cdn-telegram.org
 DOMAIN-SUFFIX,comments.app
 DOMAIN-SUFFIX,contest.com
@@ -28,6 +26,5 @@ DOMAIN-SUFFIX,tg.dev
 DOMAIN-SUFFIX,tx.me
 DOMAIN-SUFFIX,usercontent.dev
 DOMAIN-SUFFIX,walletbot.me
-domain_keyword_set:
 DOMAIN-KEYWORD,nicegram
 DOMAIN-KEYWORD,telegram

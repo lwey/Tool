@@ -1,10 +1,8 @@
-domain_set:
 DOMAIN,195.201.86.86
 DOMAIN,cc.coemn.com
 DOMAIN,cminf.sfcat.link
 DOMAIN,cuinf.sfcat.link
 DOMAIN,notnetflix.cos.cat
-domain_suffix_set:
 DOMAIN-SUFFIX,123456.al
 DOMAIN-SUFFIX,16bit.cfd
 DOMAIN-SUFFIX,20120714.xyz
@@ -159,7 +157,6 @@ DOMAIN-SUFFIX,xiaoyi.one
 DOMAIN-SUFFIX,xmsl.org
 DOMAIN-SUFFIX,zi0.icu
 DOMAIN-SUFFIX,zox.show
-ip_cidr_set:
 IP-CIDR,152.53.67.239/32,no-resolve
 IP-CIDR,188.172.228.49/32,no-resolve
 IP-CIDR,202.61.255.248/32,no-resolve

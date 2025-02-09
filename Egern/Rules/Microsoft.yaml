@@ -1,4 +1,3 @@
-domain_suffix_set:
 DOMAIN-SUFFIX,aadrm.com
 DOMAIN-SUFFIX,acompli.com
 DOMAIN-SUFFIX,acompli.net
@@ -76,6 +75,5 @@ DOMAIN-SUFFIX,windowsupdate.com
 DOMAIN-SUFFIX,wunderlist.com
 DOMAIN-SUFFIX,yammer.com
 DOMAIN-SUFFIX,yammerusercontent.com
-domain_keyword_set:
 DOMAIN-KEYWORD,1drv
 DOMAIN-KEYWORD,microsoft

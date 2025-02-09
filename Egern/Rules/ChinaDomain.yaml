@@ -1,4 +1,3 @@
-domain_set:
 DOMAIN,acg.tv
 DOMAIN,assets1.xboxlive.cn
 DOMAIN,assets2.xboxlive.cn
@@ -16,7 +15,6 @@ DOMAIN,ocsp2.globalsign.com
 DOMAIN,url.cn
 DOMAIN,www.intel.cn
 DOMAIN,www.layuicdn.com
-domain_suffix_set:
 DOMAIN-SUFFIX,10010.com
 DOMAIN-SUFFIX,10086.cn
 DOMAIN-SUFFIX,111.com

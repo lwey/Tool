@@ -1,6 +1,4 @@
-domain_set:
 DOMAIN,ip-scan.adspower.net
-domain_suffix_set:
 DOMAIN-SUFFIX,addr.tools
 DOMAIN-SUFFIX,browserleaks.com
 DOMAIN-SUFFIX,browserleaks.net
@@ -20,5 +18,4 @@ DOMAIN-SUFFIX,surfshark.com
 DOMAIN-SUFFIX,vpnunlimited.com
 DOMAIN-SUFFIX,whoer.net
 DOMAIN-SUFFIX,whrq.net
-domain_keyword_set:
 DOMAIN-KEYWORD,leak

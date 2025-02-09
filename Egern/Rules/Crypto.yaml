@@ -1,7 +1,5 @@
-domain_set:
 DOMAIN,access.pushsdk.com
 DOMAIN,pushstat.api.engagelab.cc
-domain_suffix_set:
 DOMAIN-SUFFIX,88maru.com
 DOMAIN-SUFFIX,apru88.com
 DOMAIN-SUFFIX,binance.com
@@ -22,5 +20,4 @@ DOMAIN-SUFFIX,octu88.com
 DOMAIN-SUFFIX,okx-dns1.com
 DOMAIN-SUFFIX,okx-dns2.com
 DOMAIN-SUFFIX,qcloud.com
-domain_keyword_set:
 DOMAIN-KEYWORD,htx.com

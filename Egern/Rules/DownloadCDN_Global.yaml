@@ -1,4 +1,3 @@
-domain_set:
 DOMAIN,account-api.bandainamcoid.com
 DOMAIN,account.bandainamcoid.com
 DOMAIN,afdshield-or.download.prss.microsoft.com
@@ -171,12 +170,8 @@ DOMAIN,wiki.fivem.net
 DOMAIN,windbg.download.prss.microsoft.com
 DOMAIN,xvcf1.xboxlive.com
 DOMAIN,xvcf2.xboxlive.com
-domain_suffix_set:
 DOMAIN-SUFFIX,cloudflarestorage.com
 DOMAIN-SUFFIX,storage.live.com
-domain_keyword_set:
 DOMAIN-KEYWORD,epicgames-download
 - and:
-    match:
 - and:
-    match:

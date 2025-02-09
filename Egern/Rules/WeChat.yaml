@@ -1,4 +1,3 @@
-domain_set:
 DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net
 DOMAIN,btrace.qq.com
 DOMAIN,dldir1.qq.com
@@ -9,7 +8,6 @@ DOMAIN,weixin110.qq.com
 DOMAIN,wup.imtt.qq.com
 DOMAIN,wx.tenpay.com
 DOMAIN,wxapp.tc.qq.com
-domain_suffix_set:
 DOMAIN-SUFFIX,analytics.map.qq.com
 DOMAIN-SUFFIX,apis.map.qq.com
 DOMAIN-SUFFIX,cc.map.qq.com
@@ -34,7 +32,6 @@ DOMAIN-SUFFIX,wx.gtimg.com
 DOMAIN-SUFFIX,wx.qq.com
 DOMAIN-SUFFIX,wxs.qq.com
 DOMAIN-SUFFIX,yun-hl.3g.qq.com
-domain_keyword_set:
 DOMAIN-KEYWORD,101.226.129.
 DOMAIN-KEYWORD,101.226.211.
 DOMAIN-KEYWORD,101.226.222.
@@ -268,11 +265,9 @@ DOMAIN-KEYWORD,61.241.31.
 DOMAIN-KEYWORD,61.241.44.
 DOMAIN-KEYWORD,61.241.47.
 DOMAIN-KEYWORD,61.241.49.
-ip_cidr_set:
 IP-CIDR,111.30.160.0/20,no-resolve
 IP-CIDR,112.53.11.0/24,no-resolve
 IP-CIDR,112.53.20.0/24,no-resolve
-ip_cidr6_set:
 IP-CIDR6,2402:4E00:1900:1700:0:9554:1AD0:140A/128,no-resolve
 IP-CIDR6,2402:4e00:1020:10fb:0:9466::/112,no-resolve
 IP-CIDR6,2402:4e00:1430:2264:0:9467::/96,no-resolve

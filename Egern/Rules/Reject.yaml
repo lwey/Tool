@@ -1,4 +1,3 @@
-domain_set:
 DOMAIN,118.89.204.198
 DOMAIN,a.wkanx.com
 DOMAIN,a0.app.xiaomi.com
@@ -291,7 +290,6 @@ DOMAIN,ykad-data.youku.com
 DOMAIN,yt-adp.nosdn.127.net
 DOMAIN,yt-adp.ws.126.net
 DOMAIN,zgsdk.zhugeio.com
-domain_suffix_set:
 DOMAIN-SUFFIX,003store.com
 DOMAIN-SUFFIX,0322cfmtl.cc
 DOMAIN-SUFFIX,033ajy.xyz
@@ -6680,13 +6678,11 @@ DOMAIN-SUFFIX,zzd6.com
 DOMAIN-SUFFIX,zzlong14.cn
 DOMAIN-SUFFIX,zzohucf.icu
 DOMAIN-SUFFIX,zztxfj.xyz
-domain_keyword_set:
 DOMAIN-KEYWORD,adservice
 DOMAIN-KEYWORD,hoisin.coocaa.com
 DOMAIN-KEYWORD,hoisin.coocaatv.com
 DOMAIN-KEYWORD,stsdk.vivo.com.cn
 DOMAIN-KEYWORD,stsdk.vivoglobal.com
-ip_cidr_set:
 IP-CIDR,101.227.200.11/32,no-resolve
 IP-CIDR,101.227.200.28/32,no-resolve
 IP-CIDR,101.227.97.240/32,no-resolve
@@ -6697,7 +6693,5 @@ IP-CIDR,194.59.220.161/32,no-resolve
 IP-CIDR,205.209.138.102/32,no-resolve
 IP-CIDR,23.231.151.252/32,no-resolve
 IP-CIDR,60.190.139.164/32,no-resolve
-ip_cidr6_set:
 IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,no-resolve
 - and:
-    match:
