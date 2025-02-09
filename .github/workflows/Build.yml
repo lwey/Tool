@@ -251,53 +251,67 @@ jobs:
         parse_logic_rule() {
             local rule="$1"
             local indent="$2"
+            local rule_yaml=""
 
-            # 去掉所有括号，防止干扰解析
-            rule=$(echo "$rule" | sed -E 's/[()]//g')
+            # 去掉最外层括号，防止干扰解析
+            rule=$(echo "$rule" | sed -E 's/^\(+|\)+$//g')
 
-            rule_yaml=""
-            [[ "$rule" =~ ^AND, ]] && rule_yaml+="${indent}- and:\n${indent}    match:\n" && rule="${rule#AND,}"
-            [[ "$rule" =~ ^OR, ]] && rule_yaml+="${indent}- or:\n${indent}    match:\n" && rule="${rule#OR,}"
-            [[ "$rule" =~ ^NOT, ]] && rule_yaml+="${indent}- not:\n${indent}    match:\n" && rule="${rule#NOT,}"
+            if [[ "$rule" =~ ^AND, ]]; then
+                rule_yaml+="${indent}- and:\n"
+                rule="${rule#AND,}"
+            elif [[ "$rule" =~ ^OR, ]]; then
+                rule_yaml+="${indent}- or:\n"
+                rule="${rule#OR,}"
+            elif [[ "$rule" =~ ^NOT, ]]; then
+                rule_yaml+="${indent}- not:\n"
+                rule="${rule#NOT,}"
+            fi
 
+            local sub_rules=""
             IFS=',' read -ra parts <<< "$rule"
             for part in "${parts[@]}"; do
                 part=$(echo "$part" | xargs)  # 去掉前后空格
                 if [[ "$part" =~ ^(AND|OR|NOT) ]]; then
                     nested_rule=$(parse_logic_rule "$part" "${indent}    ")  # 递归解析嵌套规则
-                    rule_yaml+="$nested_rule"
+                    sub_rules+="$nested_rule"
                 elif [[ "$part" =~ ^DOMAIN-SUFFIX, ]]; then
                     value="${part#DOMAIN-SUFFIX,}"
-                    rule_yaml+="${indent}    - domain_suffix:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - domain_suffix:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^DOMAIN-KEYWORD, ]]; then
                     value="${part#DOMAIN-KEYWORD,}"
-                    rule_yaml+="${indent}    - domain_keyword:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - domain_keyword:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^DOMAIN, ]]; then
                     value="${part#DOMAIN,}"
-                    rule_yaml+="${indent}    - domain:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - domain:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^PROTOCOL, ]]; then
                     value="${part#PROTOCOL,}"
-                    rule_yaml+="${indent}    - protocol:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - protocol:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^GEOIP, ]]; then
                     value="${part#GEOIP,}"
-                    rule_yaml+="${indent}    - geoip:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - geoip:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^IP-CIDR6, ]]; then
                     value="${part#IP-CIDR6,}"
-                    rule_yaml+="${indent}    - ip_cidr6:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - ip_cidr6:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^IP-CIDR, ]]; then
                     value="${part#IP-CIDR,}"
-                    rule_yaml+="${indent}    - ip_cidr:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - ip_cidr:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^IP-ASN, ]]; then
                     value="${part#IP-ASN,}"
-                    rule_yaml+="${indent}    - ip_asn:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - ip_asn:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^DEST-PORT, ]]; then
                     value="${part#DEST-PORT,}"
-                    rule_yaml+="${indent}    - dest_port:\n${indent}        match: $value\n"
+                    sub_rules+="${indent}    - dest_port:\n${indent}        match: $value\n"
                 elif [[ "$part" =~ ^URL-REGEX, ]]; then
                     value="${part#URL-REGEX,}"
-                    rule_yaml+="${indent}    - url_regex:\n${indent}        match: \"$value\"\n"
+                    sub_rules+="${indent}    - url_regex:\n${indent}        match: \"$value\"\n"
                 fi
             done
+
+            # 只有当 `match:` 里有内容时，才输出 `match:`
+            if [[ -n "$sub_rules" ]]; then
+                rule_yaml+="${indent}    match:\n$sub_rules"
+            fi
+
             echo -e "$rule_yaml"
         }
 
@@ -312,21 +326,11 @@ jobs:
               echo -e "$parsed_yaml" >> "$file"
             done
             sed -i -e '/^AND,/d' -e '/^OR,/d' -e '/^NOT,/d' "$file"
-
-            awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            awk '/^DOMAIN-KEYWORD,/ && !added {print "domain_keyword_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            awk '/^IP-CIDR,/ && !added {print "ip_cidr_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            awk '/^IP-CIDR6,/ && !added {print "ip_cidr6_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            awk '/^IP-ASN,/ && !added {print "ip_asn_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            awk '/^URL-REGEX,/ && !added {print "url_regex_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            awk '/^DEST-PORT,/ && !added {print "dest_port_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            awk '/^GEOIP,/ && !added {print "geoip_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
           else
             echo "$file not found."
           fi
         done
-  
+
     - name: Loon
       run: |
         for file in Tool-repo/Loon/Rules/*.list; do
