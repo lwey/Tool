@@ -252,9 +252,6 @@ jobs:
             local rule="$1"
             local indent="$2"
 
-            # 先去掉所有外层括号，防止干扰解析
-            rule=$(echo "$rule" | sed 's/[(|)]//g')
-
             rule_yaml=""
             [[ "$rule" =~ ^AND, ]] && rule_yaml+="${indent}- and:\n${indent}    match:\n" && rule="${rule#AND,}"
             [[ "$rule" =~ ^OR, ]] && rule_yaml+="${indent}- or:\n${indent}    match:\n" && rule="${rule#OR,}"
@@ -269,9 +266,6 @@ jobs:
                 elif [[ "$part" =~ DOMAIN-SUFFIX ]]; then
                     domain=$(echo "$part" | sed 's/DOMAIN-SUFFIX,//')
                     rule_yaml+="${indent}    - domain_suffix:\n${indent}        match: $domain\n"
-                elif [[ "$part" =~ DOMAIN-KEYWORD ]]; then
-                    domain=$(echo "$part" | sed 's/DOMAIN-KEYWORD,//')
-                    rule_yaml+="${indent}    - domain_keyword:\n${indent}        match: $domain\n"
                 elif [[ "$part" =~ DOMAIN ]]; then
                     domain=$(echo "$part" | sed 's/DOMAIN,//')
                     rule_yaml+="${indent}    - domain:\n${indent}        match: $domain\n"
@@ -303,6 +297,7 @@ jobs:
               echo -e "$parsed_yaml" >> "$file"
             done
             sed -i -e '/^AND,/d' -e '/^OR,/d' -e '/^NOT,/d' "$file"
+            sed -i -e 's/[()]//g' "$file"
 
             awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
             awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
