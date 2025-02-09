@@ -1,5 +1,5 @@
 # 规则名称: ChinaDomain
-# 规则统计: 770
+# 规则统计: 765
 
 domain_set:
   - acg.tv
@@ -768,9 +768,8 @@ domain_suffix_set:
   - zui.com
   - zuimeitianqi.com
   - zuoyebang.com
-domain_wildcard_set:
-  - *.ffzy-online?.com
-  - *.ffzy-play?.com
-  - *.lz-cdn?.com
-  - *.lz-cdn??.com
-  - *.qhimgs?.com
+DOMAIN-WILDCARD,*.ffzy-online?.com
+DOMAIN-WILDCARD,*.ffzy-play?.com
+DOMAIN-WILDCARD,*.lz-cdn?.com
+DOMAIN-WILDCARD,*.lz-cdn??.com
+DOMAIN-WILDCARD,*.qhimgs?.com
