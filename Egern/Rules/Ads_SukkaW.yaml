@@ -1,3 +1,7 @@
+# 规则名称: Ads_SukkaW
+# 规则统计: 73516
+
+no_resolve: true
 domain_set:
   - 2016.sina.cn
   - 9ibbcq2d.sina.cn
@@ -73519,5 +73523,5 @@ ip_cidr6_set:
   - 2402:db40:5100:1011::5/128
   - 240e:928:1400:10::25/128
 url_regex_set:
-  - /\d+/resolve
-  - /\d+/sign_d
+  - "/\d+/resolve"
+  - "/\d+/sign_d"

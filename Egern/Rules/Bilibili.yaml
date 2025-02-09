@@ -1,3 +1,6 @@
+# 规则名称: Bilibili
+# 规则统计: 20
+
 domain_set:
   - apiintl.biliapi.net
   - upos-hz-mirrorakam.akamaized.net

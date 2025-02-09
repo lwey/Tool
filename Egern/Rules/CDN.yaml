@@ -1,3 +1,6 @@
+# 规则名称: CDN
+# 规则统计: 3153
+
 domain_set:
   - 0x0.st
   - 3dna.nationbuilder.com
@@ -3154,5 +3157,5 @@ domain_wildcard_set:
   - video?-thumbnail?.liaoningmovie.net
   - vip-videoprem*-thumbnail?.fc2.com
 url_regex_set:
-  - ^http://www\.microsoft\.com/pki/
-  - ^http://www\.microsoft\.com/pkiops/
+  - "^http://www\.microsoft\.com/pki/"
+  - "^http://www\.microsoft\.com/pkiops/"

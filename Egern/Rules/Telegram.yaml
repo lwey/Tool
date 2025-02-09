@@ -1,3 +1,7 @@
+# 规则名称: Telegram
+# 规则统计: 49
+
+no_resolve: true
 domain_set:
   - api.mixpanel.com
   - events-gateway.ncdev.site

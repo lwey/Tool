@@ -1,3 +1,6 @@
+# 规则名称: Prevent_DNS_Leaks
+# 规则统计: 21
+
 domain_set:
   - ip-scan.adspower.net
 domain_suffix_set:

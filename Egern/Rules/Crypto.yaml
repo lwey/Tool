@@ -1,3 +1,6 @@
+# 规则名称: Crypto
+# 规则统计: 23
+
 domain_set:
   - access.pushsdk.com
   - pushstat.api.engagelab.cc
@@ -17,7 +20,7 @@ domain_suffix_set:
   - hbfile.net
   - htx.co.nz
   - mokexapp.com
-  - myqcloud.com
+  - myqcloud.com 
   - octu88.com
   - okx-dns1.com
   - okx-dns2.com

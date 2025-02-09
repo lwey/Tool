@@ -1,3 +1,6 @@
+# 规则名称: DownloadCDN_Global
+# 规则统计: 175
+
 domain_set:
   - account-api.bandainamcoid.com
   - account.bandainamcoid.com

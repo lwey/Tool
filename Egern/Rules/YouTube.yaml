@@ -1,3 +1,6 @@
+# 规则名称: YouTube
+# 规则统计: 14
+
 domain_set:
   - youtubei.googleapis.com
   - yt3.ggpht.com

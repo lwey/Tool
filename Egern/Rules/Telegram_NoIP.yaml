@@ -1,3 +1,6 @@
+# 规则名称: Telegram_NoIP
+# 规则统计: 30
+
 domain_set:
   - api.mixpanel.com
   - events-gateway.ncdev.site

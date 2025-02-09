@@ -1,3 +1,6 @@
+# 规则名称: AI
+# 规则统计: 34
+
 domain_set:
   - ai.google.dev
   - alkalicore-pa.clients6.google.com
