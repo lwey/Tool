@@ -246,13 +246,17 @@ jobs:
           fi
         done
 
+    - name: Setup jq and sed
+      run: apt-get update && apt-get install -y jq sed
+
     - name: Egern
       run: |
+        # 定义解析逻辑的函数
         parse_logic_to_json() {
           local rule="$1"
-
+          
           # 去掉最外层括号
-          rule=$(echo "$rule" | sed -E 's/^\(+|\)+$//g')
+          rule=$(echo "$rule" | sed -E 's/^$+|$+$//g')
 
           if [[ "$rule" =~ ^AND, ]]; then
               echo -n '{ "and": ['
@@ -274,7 +278,7 @@ jobs:
               [[ $first -eq 0 ]] && echo -n ", "
               first=0
 
-              if [[ "$part" =~ ^(AND|OR|NOT) ]]; then
+              if [[ "$part" =~ ^(AND|OR|NOT), ]]; then
                   echo -n "$(parse_logic_to_json "$part")"
               elif [[ "$part" =~ DOMAIN-SUFFIX, ]]; then
                   value="${part#DOMAIN-SUFFIX,}"
@@ -310,28 +314,29 @@ jobs:
           done
           echo -n '] }'
         }
-          
+
+        # 解析规则文件中的逻辑部分
         for file in Tool-repo/Egern/Rules/*.yaml; do
           if [ -f "$file" ]; then
             sed -i -e '/^USER-AGENT/d' "$file"
             sed -i -e '/^PROCESS-NAME/d' "$file"
 
             # 解析 AND, OR, NOT 逻辑规则为 JSON
-            grep -E '^(AND|OR|NOT),' "$file" | while IFS= read -r line; do
+            grep -E '^(AND|OR|NOT),,' "$file" | while IFS= read -r line; do
               json_output=$(parse_logic_to_json "$line")
               echo "$json_output" >> "$file.json"
             done
-            sed -i -e '/^AND,/d' -e '/^OR,/d' -e '/^NOT,/d' "$file"
+            sed -i -e '/^AND,/,/^}/d' "$file"
 
             # 转换 JSON 为 YAML
             jq -r 'def yaml: . as $in | if $in | type == "array" then 
                     ($in | map(yaml) | join("\n")) 
                   elif $in | type == "object" then 
-                    ($in | to_entries | map("\(.key):\n  \(.value | yaml)") | join("\n")) 
+                    ($in | to_entries | map("$.key):\n  $.value | yaml)") | join("\n")) 
                   else 
                     "- " + ($in | tostring) 
                   end; yaml' "$file.json" > "$file"
-            rm "$file.json"
+            rm -f "$file.json"
 
             awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
             awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
