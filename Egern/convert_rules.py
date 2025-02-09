@@ -53,6 +53,7 @@ def convert_file(file_path):
     """
     with open(file_path, "r", encoding="utf-8") as file:
         lines = file.readlines()
+    
     output_lines = []
     domain_set_added = False
     domain_suffix_set_added = False
@@ -74,7 +75,7 @@ def convert_file(file_path):
         # 解析逻辑规则
         logic_rule = parse_logic_rule(line)
         if logic_rule:
-            output_lines.append(logic_rule)
+            output_lines.append(str(logic_rule))  # 将字典转换为字符串
             continue
         # 解析单条规则
         single_rule = parse_single_rule(line)
