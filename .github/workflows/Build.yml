@@ -248,16 +248,46 @@ jobs:
 
     - name: Egern
       run: |
-        # 安装 Python 依赖（如果需要）
-        pip install pyyaml
-        # 遍历指定文件夹中的所有 .yaml 文件
         for file in Tool-repo/Egern/Rules/*.yaml; do
           if [ -f "$file" ]; then
-            echo "Processing file: $file"
-            python3 Tool-repo/Egern/convert_rules.py "$file"
+            sed -i -e '/^USER-AGENT/d' "$file"
+            sed -i -e '/^PROCESS-NAME/d' "$file"
+            sed -i -e '/^AND/d' "$file"
+            sed -i -e '/^OR/d' "$file"
+            sed -i -e '/^NOT/d' "$file"
+            awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DOMAIN-KEYWORD,/ && !added {print "domain_keyword_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DOMAIN-WILDCARD,/ && !added {print "domain_wildcard_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-CIDR,/ && !added {print "ip_cidr_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-CIDR6,/ && !added {print "ip_cidr6_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-ASN,/ && !added {print "asn_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^URL-REGEX,/ && !added {print "url_regex_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DEST-PORT,/ && !added {print "dest_port_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^GEOIP,/ && !added {print "geoip_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+          else
+            echo "$file not found."
           fi
         done
 
+        for file in Tool-repo/Egern/Rules/*.yaml; do
+          if [ -f "$file" ]; then
+            if grep -qE '^IP-(ASN|CIDR|CIDR6).*no-resolve$' "$file"; then
+            sed -i '1i\no_resolve: true' "$file"
+            fi
+            sed -i -E 's/^(URL-REGEX,)([^,]+)$/\1"\2"/' "$file"
+            sed -i -E 's/^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|DOMAIN-WILDCARD|DEST-PORT|IP-CIDR|IP-CIDR6|IP-ASN|URL-REGEX|GEOIP),/  - /g' "$file"
+            sed -i 's/,no-resolve//g' "$file"
+            file_names=$(basename "$file" .yaml)
+            line_count=$(grep -c '^  - ' "$file")
+            awk -v fname="$file_names" 'NR==1 {print "# 规则名称: " fname} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk -v count="$line_count" 'NR==2 {print "# 规则统计: " count} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            sed -i '2a\\' "$file"
+          else
+            echo "$file not found."
+          fi
+        done
+  
     - name: Loon
       run: |
         for file in Tool-repo/Loon/Rules/*.list; do
