@@ -246,125 +246,125 @@ jobs:
           fi
         done
 
-        - name: Egern
-        run: |
-          parse_logic_to_json() {
-            local rule="$1"
+    - name: Egern
+      run: |
+        parse_logic_to_json() {
+          local rule="$1"
 
-            # 去掉最外层括号
-            rule=$(echo "$rule" | sed -E 's/^\(+|\)+$//g')
+          # 去掉最外层括号
+          rule=$(echo "$rule" | sed -E 's/^\(+|\)+$//g')
 
-            if [[ "$rule" =~ ^AND, ]]; then
-                echo -n '{ "and": ['
-                rule="${rule#AND,}"
-            elif [[ "$rule" =~ ^OR, ]]; then
-                echo -n '{ "or": ['
-                rule="${rule#OR,}"
-            elif [[ "$rule" =~ ^NOT, ]]; then
-                echo -n '{ "not": ['
-                rule="${rule#NOT,}"
-            else
-                echo -n '{ "match": ['
-            fi
+          if [[ "$rule" =~ ^AND, ]]; then
+              echo -n '{ "and": ['
+              rule="${rule#AND,}"
+          elif [[ "$rule" =~ ^OR, ]]; then
+              echo -n '{ "or": ['
+              rule="${rule#OR,}"
+          elif [[ "$rule" =~ ^NOT, ]]; then
+              echo -n '{ "not": ['
+              rule="${rule#NOT,}"
+          else
+              echo -n '{ "match": ['
+          fi
 
-            IFS=',' read -ra parts <<< "$rule"
-            local first=1
-            for part in "${parts[@]}"; do
-                part=$(echo "$part" | xargs)  # 去掉前后空格
-                [[ $first -eq 0 ]] && echo -n ", "
-                first=0
+          IFS=',' read -ra parts <<< "$rule"
+          local first=1
+          for part in "${parts[@]}"; do
+              part=$(echo "$part" | xargs)  # 去掉前后空格
+              [[ $first -eq 0 ]] && echo -n ", "
+              first=0
 
-                if [[ "$part" =~ ^(AND|OR|NOT) ]]; then
-                    echo -n "$(parse_logic_to_json "$part")"
-                elif [[ "$part" =~ DOMAIN-SUFFIX, ]]; then
-                    value="${part#DOMAIN-SUFFIX,}"
-                    echo -n "{ \"domain_suffix\": \"$value\" }"
-                elif [[ "$part" =~ DOMAIN-KEYWORD, ]]; then
-                    value="${part#DOMAIN-KEYWORD,}"
-                    echo -n "{ \"domain_keyword\": \"$value\" }"
-                elif [[ "$part" =~ DOMAIN, ]]; then
-                    value="${part#DOMAIN,}"
-                    echo -n "{ \"domain\": \"$value\" }"
-                elif [[ "$part" =~ PROTOCOL, ]]; then
-                    value="${part#PROTOCOL,}"
-                    echo -n "{ \"protocol\": \"$value\" }"
-                elif [[ "$part" =~ GEOIP, ]]; then
-                    value="${part#GEOIP,}"
-                    echo -n "{ \"geoip\": \"$value\" }"
-                elif [[ "$part" =~ IP-CIDR6, ]]; then
-                    value="${part#IP-CIDR6,}"
-                    echo -n "{ \"ip_cidr6\": \"$value\" }"
-                elif [[ "$part" =~ IP-CIDR, ]]; then
-                    value="${part#IP-CIDR,}"
-                    echo -n "{ \"ip_cidr\": \"$value\" }"
-                elif [[ "$part" =~ IP-ASN, ]]; then
-                    value="${part#IP-ASN,}"
-                    echo -n "{ \"ip_asn\": \"$value\" }"
-                elif [[ "$part" =~ DEST-PORT, ]]; then
-                    value="${part#DEST-PORT,}"
-                    echo -n "{ \"dest_port\": \"$value\" }"
-                elif [[ "$part" =~ URL-REGEX, ]]; then
-                    value="${part#URL-REGEX,}"
-                    echo -n "{ \"url_regex\": \"$value\" }"
-                fi
-            done
-            echo -n '] }'
-          }
-            
-          for file in Tool-repo/Egern/Rules/*.yaml; do
-            if [ -f "$file" ]; then
-              sed -i -e '/^USER-AGENT/d' "$file"
-              sed -i -e '/^PROCESS-NAME/d' "$file"
-
-              # 解析 AND, OR, NOT 逻辑规则为 JSON
-              grep -E '^(AND|OR|NOT),' "$file" | while IFS= read -r line; do
-                json_output=$(parse_logic_to_json "$line")
-                echo "$json_output" >> "$file.json"
-              done
-              sed -i -e '/^AND,/d' -e '/^OR,/d' -e '/^NOT,/d' "$file"
-
-              # 转换 JSON 为 YAML
-              jq -r 'def yaml: . as $in | if $in | type == "array" then 
-                      ($in | map(yaml) | join("\n")) 
-                    elif $in | type == "object" then 
-                      ($in | to_entries | map("\(.key):\n  \(.value | yaml)") | join("\n")) 
-                    else 
-                      "- " + ($in | tostring) 
-                    end; yaml' "$file.json" > "$file"
-              rm "$file.json"
-
-              awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^DOMAIN-KEYWORD,/ && !added {print "domain_keyword_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^DOMAIN-WILDCARD,/ && !added {print "domain_wildcard_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^IP-CIDR,/ && !added {print "ip_cidr_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^IP-CIDR6,/ && !added {print "ip_cidr6_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^IP-ASN,/ && !added {print "asn_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^URL-REGEX,/ && !added {print "url_regex_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^DEST-PORT,/ && !added {print "dest_port_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^GEOIP,/ && !added {print "geoip_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            else
-              echo "$file not found."
-            fi
-          done
-  
-          for file in Tool-repo/Egern/Rules/*.yaml; do
-            if [ -f "$file" ]; then
-              if grep -qE '^IP-(ASN|CIDR|CIDR6).*no-resolve$' "$file"; then
-              sed -i '1i\no_resolve: true' "$file"
+              if [[ "$part" =~ ^(AND|OR|NOT) ]]; then
+                  echo -n "$(parse_logic_to_json "$part")"
+              elif [[ "$part" =~ DOMAIN-SUFFIX, ]]; then
+                  value="${part#DOMAIN-SUFFIX,}"
+                  echo -n "{ \"domain_suffix\": \"$value\" }"
+              elif [[ "$part" =~ DOMAIN-KEYWORD, ]]; then
+                  value="${part#DOMAIN-KEYWORD,}"
+                  echo -n "{ \"domain_keyword\": \"$value\" }"
+              elif [[ "$part" =~ DOMAIN, ]]; then
+                  value="${part#DOMAIN,}"
+                  echo -n "{ \"domain\": \"$value\" }"
+              elif [[ "$part" =~ PROTOCOL, ]]; then
+                  value="${part#PROTOCOL,}"
+                  echo -n "{ \"protocol\": \"$value\" }"
+              elif [[ "$part" =~ GEOIP, ]]; then
+                  value="${part#GEOIP,}"
+                  echo -n "{ \"geoip\": \"$value\" }"
+              elif [[ "$part" =~ IP-CIDR6, ]]; then
+                  value="${part#IP-CIDR6,}"
+                  echo -n "{ \"ip_cidr6\": \"$value\" }"
+              elif [[ "$part" =~ IP-CIDR, ]]; then
+                  value="${part#IP-CIDR,}"
+                  echo -n "{ \"ip_cidr\": \"$value\" }"
+              elif [[ "$part" =~ IP-ASN, ]]; then
+                  value="${part#IP-ASN,}"
+                  echo -n "{ \"ip_asn\": \"$value\" }"
+              elif [[ "$part" =~ DEST-PORT, ]]; then
+                  value="${part#DEST-PORT,}"
+                  echo -n "{ \"dest_port\": \"$value\" }"
+              elif [[ "$part" =~ URL-REGEX, ]]; then
+                  value="${part#URL-REGEX,}"
+                  echo -n "{ \"url_regex\": \"$value\" }"
               fi
-              sed -i -E 's/^(URL-REGEX,)([^,]+)$/\1"\2"/' "$file"
-              sed -i -E 's/^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|DOMAIN-WILDCARD|DEST-PORT|IP-CIDR|IP-CIDR6|IP-ASN|URL-REGEX|GEOIP),/  - /g' "$file"
-              sed -i 's/,no-resolve//g' "$file"
-              file_names=$(basename "$file" .yaml)
-              line_count=$(grep -c '^  - ' "$file")
-              awk -v fname="$file_names" 'NR==1 {print "# 规则名称: " fname} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk -v count="$line_count" 'NR==2 {print "# 规则统计: " count} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              sed -i '2a\\' "$file"
-            else
-              echo "$file not found."
-            fi
           done
+          echo -n '] }'
+        }
+          
+        for file in Tool-repo/Egern/Rules/*.yaml; do
+          if [ -f "$file" ]; then
+            sed -i -e '/^USER-AGENT/d' "$file"
+            sed -i -e '/^PROCESS-NAME/d' "$file"
+
+            # 解析 AND, OR, NOT 逻辑规则为 JSON
+            grep -E '^(AND|OR|NOT),' "$file" | while IFS= read -r line; do
+              json_output=$(parse_logic_to_json "$line")
+              echo "$json_output" >> "$file.json"
+            done
+            sed -i -e '/^AND,/d' -e '/^OR,/d' -e '/^NOT,/d' "$file"
+
+            # 转换 JSON 为 YAML
+            jq -r 'def yaml: . as $in | if $in | type == "array" then 
+                    ($in | map(yaml) | join("\n")) 
+                  elif $in | type == "object" then 
+                    ($in | to_entries | map("\(.key):\n  \(.value | yaml)") | join("\n")) 
+                  else 
+                    "- " + ($in | tostring) 
+                  end; yaml' "$file.json" > "$file"
+            rm "$file.json"
+
+            awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DOMAIN-KEYWORD,/ && !added {print "domain_keyword_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DOMAIN-WILDCARD,/ && !added {print "domain_wildcard_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-CIDR,/ && !added {print "ip_cidr_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-CIDR6,/ && !added {print "ip_cidr6_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-ASN,/ && !added {print "asn_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^URL-REGEX,/ && !added {print "url_regex_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DEST-PORT,/ && !added {print "dest_port_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^GEOIP,/ && !added {print "geoip_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+          else
+            echo "$file not found."
+          fi
+        done
+
+        for file in Tool-repo/Egern/Rules/*.yaml; do
+          if [ -f "$file" ]; then
+            if grep -qE '^IP-(ASN|CIDR|CIDR6).*no-resolve$' "$file"; then
+            sed -i '1i\no_resolve: true' "$file"
+            fi
+            sed -i -E 's/^(URL-REGEX,)([^,]+)$/\1"\2"/' "$file"
+            sed -i -E 's/^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|DOMAIN-WILDCARD|DEST-PORT|IP-CIDR|IP-CIDR6|IP-ASN|URL-REGEX|GEOIP),/  - /g' "$file"
+            sed -i 's/,no-resolve//g' "$file"
+            file_names=$(basename "$file" .yaml)
+            line_count=$(grep -c '^  - ' "$file")
+            awk -v fname="$file_names" 'NR==1 {print "# 规则名称: " fname} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk -v count="$line_count" 'NR==2 {print "# 规则统计: " count} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            sed -i '2a\\' "$file"
+          else
+            echo "$file not found."
+          fi
+        done
 
     - name: Loon
       run: |
