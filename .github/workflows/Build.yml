@@ -246,104 +246,104 @@ jobs:
           fi
         done
 
-        - name: Egern
-        run: |
-          parse_logic_rule() {
-              local rule="$1"
-              local indent="$2"
-  
-              # 去掉所有外层括号，防止干扰解析
-              rule=$(echo "$rule" | sed -E 's/^\(+|\)+$//g')
-  
-              rule_yaml=""
-              [[ "$rule" =~ ^AND, ]] && rule_yaml+="${indent}- and:\n${indent}    match:\n" && rule="${rule#AND,}"
-              [[ "$rule" =~ ^OR, ]] && rule_yaml+="${indent}- or:\n${indent}    match:\n" && rule="${rule#OR,}"
-              [[ "$rule" =~ ^NOT, ]] && rule_yaml+="${indent}- not:\n${indent}    match:\n" && rule="${rule#NOT,}"
-  
-              IFS=',' read -ra parts <<< "$rule"
-              for part in "${parts[@]}"; do
-                  part=$(echo "$part" | xargs)  # 去掉前后空格
-                  if [[ "$part" =~ ^(AND|OR|NOT) ]]; then
-                      nested_rule=$(parse_logic_rule "$part" "${indent}    ")  # 递归解析嵌套规则
-                      rule_yaml+="$nested_rule"
-                  elif [[ "$part" =~ DOMAIN-SUFFIX ]]; then
-                      value=$(echo "$part" | sed 's/DOMAIN-SUFFIX,//')
-                      rule_yaml+="${indent}    - domain_suffix:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ DOMAIN-KEYWORD ]]; then
-                      value=$(echo "$part" | sed 's/DOMAIN-KEYWORD,//')
-                      rule_yaml+="${indent}    - domain_keyword:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ DOMAIN ]]; then
-                      value=$(echo "$part" | sed 's/DOMAIN,//')
-                      rule_yaml+="${indent}    - domain:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ PROTOCOL ]]; then
-                      value=$(echo "$part" | sed 's/PROTOCOL,//')
-                      rule_yaml+="${indent}    - protocol:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ GEOIP ]]; then
-                      value=$(echo "$part" | sed 's/GEOIP,//')
-                      rule_yaml+="${indent}    - geoip:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ IP-CIDR6 ]]; then
-                      value=$(echo "$part" | sed 's/IP-CIDR6,//')
-                      rule_yaml+="${indent}    - ip_cidr6:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ IP-CIDR ]]; then
-                      value=$(echo "$part" | sed 's/IP-CIDR,//')
-                      rule_yaml+="${indent}    - ip_cidr:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ IP-ASN ]]; then
-                      value=$(echo "$part" | sed 's/IP-ASN,//')
-                      rule_yaml+="${indent}    - ip_asn:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ DEST-PORT ]]; then
-                      value=$(echo "$part" | sed 's/DEST-PORT,//')
-                      rule_yaml+="${indent}    - dest_port:\n${indent}        match: $value\n"
-                  elif [[ "$part" =~ URL-REGEX ]]; then
-                      value=$(echo "$part" | sed 's/URL-REGEX,//')
-                      rule_yaml+="${indent}    - url_regex:\n${indent}        match: \"$value\"\n"
-                  fi
-              done
-              echo -e "$rule_yaml"
-          }
-  
-          for file in Tool-repo/Egern/Rules/*.yaml; do
-            if [ -f "$file" ]; then
-              sed -i -e '/^USER-AGENT/d' "$file"
-              sed -i -e '/^PROCESS-NAME/d' "$file"
-  
-              # 解析 AND, OR, NOT 逻辑规则
-              grep -E '^(AND|OR|NOT),' "$file" | while IFS= read -r line; do
-                parsed_yaml=$(parse_logic_rule "$line" "")
-                echo -e "$parsed_yaml" >> "$file"
-              done
-              sed -i -e '/^AND,/d' -e '/^OR,/d' -e '/^NOT,/d' "$file"
-  
-              awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^DOMAIN-KEYWORD,/ && !added {print "domain_keyword_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^IP-CIDR,/ && !added {print "ip_cidr_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^IP-CIDR6,/ && !added {print "ip_cidr6_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^IP-ASN,/ && !added {print "ip_asn_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^URL-REGEX,/ && !added {print "url_regex_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^DEST-PORT,/ && !added {print "dest_port_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk '/^GEOIP,/ && !added {print "geoip_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
-            else
-              echo "$file not found."
+    - name: Egern
+      run: |
+        parse_logic_rule() {
+            local rule="$1"
+            local indent="$2"
+
+            # 去掉所有外层括号，防止干扰解析
+            rule=$(echo "$rule" | sed -E 's/^\(+|\)+$//g')
+
+            rule_yaml=""
+            [[ "$rule" =~ ^AND, ]] && rule_yaml+="${indent}- and:\n${indent}    match:\n" && rule="${rule#AND,}"
+            [[ "$rule" =~ ^OR, ]] && rule_yaml+="${indent}- or:\n${indent}    match:\n" && rule="${rule#OR,}"
+            [[ "$rule" =~ ^NOT, ]] && rule_yaml+="${indent}- not:\n${indent}    match:\n" && rule="${rule#NOT,}"
+
+            IFS=',' read -ra parts <<< "$rule"
+            for part in "${parts[@]}"; do
+                part=$(echo "$part" | xargs)  # 去掉前后空格
+                if [[ "$part" =~ ^(AND|OR|NOT) ]]; then
+                    nested_rule=$(parse_logic_rule "$part" "${indent}    ")  # 递归解析嵌套规则
+                    rule_yaml+="$nested_rule"
+                elif [[ "$part" =~ DOMAIN-SUFFIX ]]; then
+                    value=$(echo "$part" | sed 's/DOMAIN-SUFFIX,//')
+                    rule_yaml+="${indent}    - domain_suffix:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ DOMAIN-KEYWORD ]]; then
+                    value=$(echo "$part" | sed 's/DOMAIN-KEYWORD,//')
+                    rule_yaml+="${indent}    - domain_keyword:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ DOMAIN ]]; then
+                    value=$(echo "$part" | sed 's/DOMAIN,//')
+                    rule_yaml+="${indent}    - domain:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ PROTOCOL ]]; then
+                    value=$(echo "$part" | sed 's/PROTOCOL,//')
+                    rule_yaml+="${indent}    - protocol:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ GEOIP ]]; then
+                    value=$(echo "$part" | sed 's/GEOIP,//')
+                    rule_yaml+="${indent}    - geoip:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ IP-CIDR6 ]]; then
+                    value=$(echo "$part" | sed 's/IP-CIDR6,//')
+                    rule_yaml+="${indent}    - ip_cidr6:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ IP-CIDR ]]; then
+                    value=$(echo "$part" | sed 's/IP-CIDR,//')
+                    rule_yaml+="${indent}    - ip_cidr:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ IP-ASN ]]; then
+                    value=$(echo "$part" | sed 's/IP-ASN,//')
+                    rule_yaml+="${indent}    - ip_asn:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ DEST-PORT ]]; then
+                    value=$(echo "$part" | sed 's/DEST-PORT,//')
+                    rule_yaml+="${indent}    - dest_port:\n${indent}        match: $value\n"
+                elif [[ "$part" =~ URL-REGEX ]]; then
+                    value=$(echo "$part" | sed 's/URL-REGEX,//')
+                    rule_yaml+="${indent}    - url_regex:\n${indent}        match: \"$value\"\n"
+                fi
+            done
+            echo -e "$rule_yaml"
+        }
+
+        for file in Tool-repo/Egern/Rules/*.yaml; do
+          if [ -f "$file" ]; then
+            sed -i -e '/^USER-AGENT/d' "$file"
+            sed -i -e '/^PROCESS-NAME/d' "$file"
+
+            # 解析 AND, OR, NOT 逻辑规则
+            grep -E '^(AND|OR|NOT),' "$file" | while IFS= read -r line; do
+              parsed_yaml=$(parse_logic_rule "$line" "")
+              echo -e "$parsed_yaml" >> "$file"
+            done
+            sed -i -e '/^AND,/d' -e '/^OR,/d' -e '/^NOT,/d' "$file"
+
+            awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DOMAIN-KEYWORD,/ && !added {print "domain_keyword_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-CIDR,/ && !added {print "ip_cidr_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-CIDR6,/ && !added {print "ip_cidr6_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^IP-ASN,/ && !added {print "ip_asn_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^URL-REGEX,/ && !added {print "url_regex_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^DEST-PORT,/ && !added {print "dest_port_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk '/^GEOIP,/ && !added {print "geoip_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
+          else
+            echo "$file not found."
+          fi
+        done
+
+        for file in Tool-repo/Egern/Rules/*.yaml; do
+          if [ -f "$file" ]; then
+            if grep -qE '^IP-(ASN|CIDR|CIDR6).*no-resolve$' "$file"; then
+              sed -i '1i\no_resolve: true' "$file"
             fi
-          done
-  
-          for file in Tool-repo/Egern/Rules/*.yaml; do
-            if [ -f "$file" ]; then
-              if grep -qE '^IP-(ASN|CIDR|CIDR6).*no-resolve$' "$file"; then
-                sed -i '1i\no_resolve: true' "$file"
-              fi
-              sed -i -E 's/^(URL-REGEX,)([^,]+)$/\1"\2"/' "$file"
-              sed -i -E 's/^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|IP-CIDR|IP-CIDR6|IP-ASN|URL-REGEX|GEOIP|DEST-PORT),/  - /g' "$file"
-              sed -i 's/,no-resolve//g' "$file"
-              file_names=$(basename "$file" .yaml)
-              line_count=$(grep -c '^  - ' "$file")
-              awk -v fname="$file_names" 'NR==1 {print "# 规则名称: " fname} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              awk -v count="$line_count" 'NR==2 {print "# 规则统计: " count} {print}' "$file" > tmpfile && mv tmpfile "$file"
-              sed -i '2a\\' "$file"
-            else
-              echo "$file not found."
-            fi
-          done
+            sed -i -E 's/^(URL-REGEX,)([^,]+)$/\1"\2"/' "$file"
+            sed -i -E 's/^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|IP-CIDR|IP-CIDR6|IP-ASN|URL-REGEX|GEOIP|DEST-PORT),/  - /g' "$file"
+            sed -i 's/,no-resolve//g' "$file"
+            file_names=$(basename "$file" .yaml)
+            line_count=$(grep -c '^  - ' "$file")
+            awk -v fname="$file_names" 'NR==1 {print "# 规则名称: " fname} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            awk -v count="$line_count" 'NR==2 {print "# 规则统计: " count} {print}' "$file" > tmpfile && mv tmpfile "$file"
+            sed -i '2a\\' "$file"
+          else
+            echo "$file not found."
+          fi
+        done
   
     - name: Loon
       run: |
