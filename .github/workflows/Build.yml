@@ -248,13 +248,56 @@ jobs:
 
     - name: Egern
       run: |
+        parse_logic_rule() {
+            local rule="$1"
+            local indent="$2"
+
+            rule_yaml=""
+            [[ "$rule" =~ ^AND, ]] && rule_yaml+="${indent}- and:\n${indent}    match:\n" && rule="${rule#AND,}"
+            [[ "$rule" =~ ^OR, ]] && rule_yaml+="${indent}- or:\n${indent}    match:\n" && rule="${rule#OR,}"
+            [[ "$rule" =~ ^NOT, ]] && rule_yaml+="${indent}- not:\n${indent}    match:\n" && rule="${rule#NOT,}"
+
+            IFS=',' read -ra parts <<< "$rule"
+            for part in "${parts[@]}"; do
+                part=$(echo "$part" | xargs)  # 去掉前后空格
+                if [[ "$part" =~ ^AND|^OR|^NOT ]]; then
+                    nested_rule=$(parse_logic_rule "$part" "${indent}    ")  # 递归解析嵌套规则
+                    rule_yaml+="$nested_rule"
+                elif [[ "$part" =~ DOMAIN-SUFFIX ]]; then
+                    domain=$(echo "$part" | sed 's/DOMAIN-SUFFIX,//')
+                    rule_yaml+="${indent}    - domain_suffix:\n${indent}        match: $domain\n"
+                elif [[ "$part" =~ DOMAIN ]]; then
+                    domain=$(echo "$part" | sed 's/DOMAIN,//')
+                    rule_yaml+="${indent}    - domain:\n${indent}        match: $domain\n"
+                elif [[ "$part" =~ PROTOCOL ]]; then
+                    proto=$(echo "$part" | sed 's/PROTOCOL,//')
+                    rule_yaml+="${indent}    - protocol:\n${indent}        match: $proto\n"
+                elif [[ "$part" =~ GEOIP ]]; then
+                    country=$(echo "$part" | sed 's/GEOIP,//')
+                    rule_yaml+="${indent}    - geoip:\n${indent}        match: $country\n"
+                elif [[ "$part" =~ IP-CIDR ]]; then
+                    ip=$(echo "$part" | sed 's/IP-CIDR,//')
+                    rule_yaml+="${indent}    - ip_cidr:\n${indent}        match: $ip\n"
+                elif [[ "$part" =~ URL-REGEX ]]; then
+                    url=$(echo "$part" | sed 's/URL-REGEX,//')
+                    rule_yaml+="${indent}    - url_regex:\n${indent}        match: \"$url\"\n"
+                fi
+            done
+            echo -e "$rule_yaml"
+        }
+
         for file in Tool-repo/Egern/Rules/*.yaml; do
           if [ -f "$file" ]; then
             sed -i -e '/^USER-AGENT/d' "$file"
             sed -i -e '/^PROCESS-NAME/d' "$file"
-            sed -i -e '/^AND/d' "$file"
-            sed -i -e '/^OR/d' "$file"
-            sed -i -e '/^NOT/d' "$file"
+            
+            # 解析 AND, OR, NOT 逻辑规则
+            grep -E '^(AND|OR|NOT),' "$file" | while IFS= read -r line; do
+              parsed_yaml=$(parse_logic_rule "$line" "")
+              echo -e "$parsed_yaml" >> "$file"
+            done
+            sed -i -e '/^AND,/d' -e '/^OR,/d' -e '/^NOT,/d' "$file"
+
             awk '/^DOMAIN,/ && !added {print "domain_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
             awk '/^DOMAIN-SUFFIX,/ && !added {print "domain_suffix_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
             awk '/^DOMAIN-KEYWORD,/ && !added {print "domain_keyword_set:"; added=1} {print}' "$file" > tmpfile && mv tmpfile "$file"
