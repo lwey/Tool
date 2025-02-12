@@ -134,7 +134,6 @@ jobs:
                 "WeChat.list https://raw.githubusercontent.com/NobyDa/Script/master/Surge/WeChat.list"
                 "ChinaASN.list https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.list"
                 "ChinaDomain.list https://ruleset.skk.moe/List/non_ip/domestic.conf"
-                "ChinaIPv4.list https://ruleset.skk.moe/List/ip/china_ip.conf"
                 # 广告规则
                 "Ads_limbopro.list https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Surge/rule/Adblock4limbo_surge.list"
                 "Ads_EasyListChina.list https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/rule/Surge/easylistchina_surge.list"
