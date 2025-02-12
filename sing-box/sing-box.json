@@ -94,7 +94,7 @@
             {"tag": "Emby", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Emby.srs", "download_detour": "direct" },
             {"tag": "GeoSite@CN", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "direct" },
             {"tag": "GeoIP@CN", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Loyalsoldier/geoip/raw/release/srs/cn.srs", "download_detour": "direct" },
-            {"tag": "geolocation-!cn","type": "remote","format": "binary","url": "https://git.repcz.link/raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs","download_detour": "direct"},
+            {"tag": "geolocation-!cn","type": "remote","format": "binary","url": "https://git.repcz.link/raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs","download_detour": "direct"}
         ],
         "rules": [
             {"action": "sniff"},
