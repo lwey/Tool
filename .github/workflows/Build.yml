@@ -3,13 +3,14 @@ name: Build
 on:
   workflow_dispatch:
   schedule:
-    - cron: "52 3,15 * * *"
+    - cron: "5 0,12 * * *"
 
 jobs:
   Build:
     runs-on: ubuntu-latest
     env:
       TZ: "Asia/Shanghai"
+      SING_BOX_VERSION: 1.10.5
 
     steps:
     - name: Checkout Repository
@@ -413,6 +414,8 @@ jobs:
             sed -i -e '/^URL-REGEX/d' "$file"
             sed -i -e '/^DOMAIN-WILDCARD/d' "$file"
             sed -i -e '/^GEOIP/d' "$file"
+            sed -i -e '/^#/d' "$file"
+            sed -i -e '/^$/d' "$file"
 
             temp_file=$(mktemp)
             echo '{' > "$temp_file"
