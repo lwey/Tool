@@ -81,8 +81,8 @@ jobs:
             done
             # 合并 CN_IP 规则
             urls=(
-                "https://ruleset.skk.moe/Clash/ip/china_ip.txt"
-                "https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt"
+                "https://ruleset.skk.moe/List/ip/china_ip.conf"
+                "https://ruleset.skk.moe/List/ip/china_ip_ipv6.conf"
             )
             > Tool-repo/Ruleset/ChinaIP.list
             for url in "${urls[@]}"; do
