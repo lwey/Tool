@@ -217,8 +217,8 @@ jobs:
 
     - name: Copy files
       run: |
-        rm -rf Tool-repo/{Clash,Egern,Loon,QuantumultX,Shadowrocket,Stash,Surge}/Rules
-        mkdir -p Tool-repo/{Clash,Egern,Loon,QuantumultX,Shadowrocket,Stash,Surge}/Rules
+        rm -rf Tool-repo/{Clash,Egern,Loon,QuantumultX,Shadowrocket,Stash,Surge,sing-box}/Rules
+        mkdir -p Tool-repo/{Clash,Egern,Loon,QuantumultX,Shadowrocket,Stash,Surge,sing-box/Rules
         for file in Tool-repo/Ruleset/*.list; do
           filename=$(basename "$file")
           for dir in Clash Loon QuantumultX Shadowrocket Stash Surge; do

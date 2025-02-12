@@ -70,8 +70,13 @@
         {"tag": "Microsoft","type": "selector","outbounds": ["direct"],"default": "direct","interrupt_exist_connections": true},
         {"tag": "Apple","type": "selector","outbounds": ["direct"],"default": "direct","interrupt_exist_connections": true},
         {"tag": "Twitter","type": "selector","outbounds": ["direct"],"default": "direct","interrupt_exist_connections": true},
-        {"tag": "Telegram","type": "selector","outbounds": ["direct"],"default": "direct","interrupt_exist_connections": true}
+        {"tag": "Telegram","type": "selector","outbounds": ["direct"],"default": "direct","interrupt_exist_connections": true},
 
+
+        { "tag": "🇭🇰 HongKong", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇭🇰|HK|hk|香港|港|HongKong"] }] },
+        { "tag": "🇯🇵 Jpaan", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇯🇵|JP|jp|日本|日|Japan"] }] },
+        { "tag": "🇺🇲 United States", "type": "selector", "outbounds": ["{all}"], "filter": [{ "action": "include", "keywords": ["🇺🇸|US|us|美国|美|United States"] }, { "action": "exclude", "keywords": ["香港|港|HK|hk|HongKong"] }] }
+  
     ],
     "route": {
         "rule_set": [
