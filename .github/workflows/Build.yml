@@ -79,6 +79,17 @@ jobs:
                 curl -f -L "$url" >> Tool-repo/Ruleset/ProxyGFW.list || { echo "Download Failed: $url"; exit 1; }
                 echo "" >> Tool-repo/Ruleset/ProxyGFW.list
             done
+            # 合并 CN_IP 规则
+            urls=(
+                "https://ruleset.skk.moe/Clash/ip/china_ip.txt"
+                "https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt"
+            )
+            > Tool-repo/Ruleset/ChinaIP.list
+            for url in "${urls[@]}"; do
+                echo "Downloading: $url"
+                curl -f -L "$url" >> Tool-repo/Ruleset/ChinaIP.list || { echo "Download Failed: $url"; exit 1; }
+                echo "" >> Tool-repo/Ruleset/ChinaIP.list
+            done
             # 下载规则
             files=(
                 # 苹果
