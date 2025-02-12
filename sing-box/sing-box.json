@@ -37,26 +37,28 @@
     },
     "inbounds": [
         {
+            "type": "mixed",
+            "tag": "mixed",
+            "listen": "127.0.0.1",
+            "listen_port": 7080,
+            "set_system_proxy": false
+        },
+        {
             "type": "tun",
-            "address": "172.19.0.1/30",
-            "mtu": 9000,
-            "auto_route": true,
-            "strict_route": true,
-            "stack": "mixed",
+            "tag": "tun",
+            "address": [
+                "172.18.0.1/30",
+                "fdfe:dcba:9876::1/126"
+            ],
             "platform": {
                 "http_proxy": {
                     "enabled": true,
                     "server": "127.0.0.1",
-                    "server_port": 2080
+                    "server_port": 7080
                 }
-            }
-        },
-        {
-            "type": "mixed",
-            "listen": "127.0.0.1",
-            "listen_port": 2080,
-            "sniff": true,
-            "users": []
+            },
+            "stack": "mixed",
+            "auto_route": true
         }
     ],
     "outbounds": [
@@ -77,6 +79,7 @@
     ],
     "route": {
         "rule_set": [
+            {"tag": "Ads","type": "remote","format": "binary","url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Ads_SukkaW.srs","download_detour": "direct"},
             {"tag": "geolocation-!cn","type": "remote","format": "binary","url": "https://git.repcz.link/raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs","download_detour": "direct"},
             {"tag": "Telegram", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Telegram.srs", "download_detour": "direct" },
             {"tag": "YouTube", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/YouTube.srs", "download_detour": "direct" },
@@ -96,6 +99,7 @@
             {"protocol": "dns","action": "hijack-dns"},
             {"clash_mode": "Direct","action": "route","outbound": "direct"},
             {"clash_mode": "Global","action": "route","outbound": "Proxy"},
+            {"rule_set": ["Ads"],"action": "reject"},
             {"rule_set": ["AI"],"action": "route","outbound": "AI"},
             {"rule_set": ["YouTube","Google"],"action": "route","outbound": "Google"},
             {"rule_set": ["Microsoft","OneDrive","Github"],"action": "route","outbound": "Microsoft"},
