@@ -28,7 +28,7 @@
             {"outbound": "any","server": "ali"},
             {"clash_mode": "Direct","action": "route","server": "ali"},
             {"clash_mode": "Global","action": "route","server": "cloudflare"},
-            {"rule_set": ["geosite-cn","Apple"],"action": "route","server": "ali"},
+            {"rule_set": ["GeoSite@CN","Apple"],"action": "route","server": "ali"},
             {"query_type": ["A","AAAA"],"action": "route","server": "remote_fakeip"}
         ],
         "fakeip": {"enabled": true,"inet4_range": "198.18.0.0/15","inet6_range": "fc00::/18"},
@@ -69,6 +69,7 @@
         {"tag": "Microsoft","type": "selector","outbounds": ["🇭🇰 HongKong","🇺🇸 United States","🇸🇬 Singapore","🇯🇵 Japan","🇨🇳 Taiwan","direct"],"default": "direct","interrupt_exist_connections": true},
         {"tag": "Twitter","type": "selector","outbounds": ["🇭🇰 HongKong","🇺🇸 United States","🇸🇬 Singapore","🇯🇵 Japan","🇨🇳 Taiwan","direct"],"default": "direct","interrupt_exist_connections": true},
         {"tag": "Telegram","type": "selector","outbounds": ["🇭🇰 HongKong","🇺🇸 United States","🇸🇬 Singapore","🇯🇵 Japan","🇨🇳 Taiwan","direct"],"default": "direct","interrupt_exist_connections": true},
+        {"tag": "Emby","type": "selector","outbounds": ["Proxy","🇭🇰 HongKong","🇺🇸 United States","🇸🇬 Singapore","🇯🇵 Japan","🇨🇳 Taiwan","direct"],"default": "direct","interrupt_exist_connections": true},
         {"tag": "Final","type": "selector","outbounds": ["Proxy","🇭🇰 HongKong","🇺🇸 United States","🇸🇬 Singapore","🇯🇵 Japan","🇨🇳 Taiwan","direct"],"default": "direct","interrupt_exist_connections": true},
 
         {"tag": "🇭🇰 HongKong","type": "urltest","outbounds": [],"url": "http://1.1.1.1/generate_204","interval": "10m","tolerance": 0,"interrupt_exist_connections": false},
@@ -80,7 +81,6 @@
     "route": {
         "rule_set": [
             {"tag": "Ads","type": "remote","format": "binary","url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Ads_SukkaW.srs","download_detour": "direct"},
-            {"tag": "geolocation-!cn","type": "remote","format": "binary","url": "https://git.repcz.link/raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs","download_detour": "direct"},
             {"tag": "Telegram", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Telegram.srs", "download_detour": "direct" },
             {"tag": "YouTube", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/YouTube.srs", "download_detour": "direct" },
             {"tag": "Google", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Google.srs", "download_detour": "direct" },
@@ -91,8 +91,10 @@
             {"tag": "Apple", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Apple.srs", "download_detour": "direct" },
             {"tag": "AppleProxy", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/AppleProxy.srs", "download_detour": "direct" },
             {"tag": "AI", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-chat-!cn.srs", "download_detour": "direct" },
-            {"tag": "geosite-cn", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "direct" },
-            {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs", "download_detour": "direct" }
+            {"tag": "Emby", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Repcz/Tool/raw/X/sing-box/Rules/Emby.srs", "download_detour": "direct" },
+            {"tag": "GeoSite@CN", "type": "remote", "format": "binary", "url": "https://git.repcz.link/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "direct" },
+            {"tag": "GeoIP@CN", "type": "remote", "format": "binary", "url": "https://git.repcz.link/github.com/Loyalsoldier/geoip/raw/release/srs/cn.srs", "download_detour": "direct" },
+            {"tag": "geolocation-!cn","type": "remote","format": "binary","url": "https://git.repcz.link/raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-geolocation-!cn.srs","download_detour": "direct"},
         ],
         "rules": [
             {"action": "sniff"},
@@ -105,8 +107,9 @@
             {"rule_set": ["Microsoft","OneDrive","Github"],"action": "route","outbound": "Microsoft"},
             {"rule_set": ["Twitter"],"action": "route","outbound": "Twitter"},
             {"rule_set": ["Telegram"],"action": "route","outbound": "Telegram"},
+            {"rule_set": ["Emby"],"action": "route","outbound": "Emby"},
             {"rule_set": ["AppleProxy"],"action": "route","outbound": "🇭🇰 HongKong"},
-            {"rule_set": ["geosite-cn","geoip-cn","Apple"],"action": "route","outbound": "direct"},
+            {"rule_set": ["GeoSite@CN","GeoIP@CN","Apple"],"action": "route","outbound": "direct"},
             {"rule_set": ["geolocation-!cn"],"action": "route","outbound": "Proxy"},
             {"ip_is_private": true,"outbound": "direct"}
         ],
