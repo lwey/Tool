@@ -105,7 +105,7 @@
             {"rule_set": ["geosite-apple","geoip-apple"],"action": "route","outbound": "Apple"},
             {"rule_set": ["geosite-twitter"],"action": "route","outbound": "Twitter"},
             {"rule_set": ["geoip-telegram","geosite-telegram"],"action": "route","outbound": "Telegram"},
-            {"rule_set": ["cgeosite-cn","geoip-cn"],"action": "route","outbound": "direct"},
+            {"rule_set": ["geosite-cn","geoip-cn"],"action": "route","outbound": "direct"},
             {"rule_set": ["geolocation-!cn"],"action": "route","outbound": "Proxy"},
             {"ip_is_private": true,"outbound": "direct"}
         ],
