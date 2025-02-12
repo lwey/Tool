@@ -218,15 +218,18 @@ jobs:
     - name: Copy files
       run: |
         rm -rf Tool-repo/{Clash,Egern,Loon,QuantumultX,Shadowrocket,Stash,Surge,sing-box}/Rules
-        mkdir -p Tool-repo/{Clash,Egern,Loon,QuantumultX,Shadowrocket,Stash,Surge,sing-box/Rules
+        mkdir -p Tool-repo/{Clash,Egern,Loon,QuantumultX,Shadowrocket,Stash,Surge,sing-box}/Rules
         for file in Tool-repo/Ruleset/*.list; do
           filename=$(basename "$file")
           for dir in Clash Loon QuantumultX Shadowrocket Stash Surge; do
+            mkdir -p "Tool-repo/$dir/Rules"
             cp "$file" "Tool-repo/$dir/Rules/$filename"
           done
           # 复制到 Egern 文件夹, 并将后缀改为.yaml
+          mkdir -p "Tool-repo/Egern/Rules"
           cp "$file" "Tool-repo/Egern/Rules/${filename%.*}.yaml"
           # 复制到 sing-box 文件夹, 并将后缀改为.json
+          mkdir -p "Tool-repo/sing-box/Rules"
           cp "$file" "Tool-repo/sing-box/Rules/${filename%.*}.json"
         done
         echo "Files copied successfully."
