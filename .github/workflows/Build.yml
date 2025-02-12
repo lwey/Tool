@@ -394,15 +394,15 @@ jobs:
           fi
         done
 
-    - name: Sing-box
+    - name: sing-box
       run: |
-        # 安装 Sing-box
+        # 安装 sing-box
         curl -L -o sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v${SING_BOX_VERSION}/sing-box-${SING_BOX_VERSION}-linux-amd64.tar.gz
         tar -xzf sing-box.tar.gz
         chmod +x sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box
         sudo mv sing-box-${SING_BOX_VERSION}-linux-amd64/sing-box /usr/local/bin/sing-box
         sing-box version
-        # 处理 Rule-set
+        # 处理 Rules
         for file in Tool-repo/sing-box/Rules/*.json; do
           if [ -f "$file" ]; then
             sed -i -e '/^PROCESS-NAME/d' "$file"
@@ -472,6 +472,9 @@ jobs:
             echo "$file not found."
           fi
         done
+        rm -rf ${{ github.workspace }}/Tool-repo/sing-box/Rules/ChinaASN.{json,srs}
+        rm -rf ${{ github.workspace }}/Tool-repo/sing-box/Rules/FILTER_REGION.{json,srs}
+      
 
     - name: Push Update
       run: |
